@@ -107,7 +107,7 @@ if (!empty($_GET['date_period'])) {
 						</div>
 						<div class="money-table-cell">
 							<a href="https://jbyss.amocrm.ru/leads/detail/<?= $model->ext_id ?>" title="Перейти в сделку AMOCRM" target="_blank">
-								<img src="/images/money_arr.png">
+								<img src="/web/images/money_arr.png">
 							</a>
 						</div>
 					</div>
