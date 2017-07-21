@@ -3193,5 +3193,51 @@
             }
         ],
         "description": "BDD code blocks for PHPUnit and Codeception"
+    },
+    {
+        "name": "dotzero/amocrm",
+        "version": "v0.3.18",
+        "version_normalized": "0.3.18.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/dotzero/amocrm-php.git",
+            "reference": "bdb1b7c2d308754c147581c15e7868e678547567"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/dotzero/amocrm-php/zipball/bdb1b7c2d308754c147581c15e7868e678547567",
+            "reference": "bdb1b7c2d308754c147581c15e7868e678547567",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "4.0.*"
+        },
+        "time": "2017-06-20T18:36:39+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "AmoCRM\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "dotzero",
+                "email": "mail@dotzero.ru"
+            }
+        ],
+        "description": "Удобный и быстрый клиент для работы с API amoCRM",
+        "keywords": [
+            "amoCRM",
+            "api",
+            "crm"
+        ]
     }
 ]

@@ -75,6 +75,10 @@ class ComposerStaticInitfdc425f9ef0b0561317aecf1e84d8ea7
             'Codeception\\Extension\\' => 22,
             'Codeception\\' => 12,
         ),
+        'A' => 
+        array (
+            'AmoCRM\\' => 7,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -191,6 +195,10 @@ class ComposerStaticInitfdc425f9ef0b0561317aecf1e84d8ea7
         'Codeception\\' => 
         array (
             0 => __DIR__ . '/..' . '/codeception/base/src/Codeception',
+        ),
+        'AmoCRM\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/dotzero/amocrm/src',
         ),
     );
 
