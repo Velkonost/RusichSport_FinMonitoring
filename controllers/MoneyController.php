@@ -113,6 +113,8 @@ class MoneyController extends Controller {
             $leadsIds = [];
 
             $leadsDateCreate = [];
+            $leadsDateClose = [];
+            $leadsStatusId = [];
             $clientsIds = [];
             $amountLeads = count($data->{'response'}->{'leads'});
 
@@ -121,6 +123,8 @@ class MoneyController extends Controller {
                     array_push($clientsIds, $data->{'response'}->{'leads'}[$i]->{'main_contact_id'});
                     // array_push($leadsDateCreate, date("d/m/Y H:i:s", $data->{'response'}->{'leads'}[$i]->{'date_create'}));
                     array_push($leadsDateCreate, $data->{'response'}->{'leads'}[$i]->{'date_create'});
+                    array_push($leadsDateClose, $data->{'response'}->{'leads'}[$i]->{'date_close'});
+                    array_push($leadsStatusId, $data->{'response'}->{'leads'}[$i]->{'status_id'});
             }
             
             $link3 = 'https://'.$subdomain.'.amocrm.ru/private/api/v2/json/contacts/';
@@ -168,11 +172,6 @@ class MoneyController extends Controller {
 
             }
 
-
-            // $post = new Leads; 
-            // $post->lead_id = $offset;
-            // $post ->contact_name = $link2;
-            // $post->save();
             sleep(2);
         }
 
@@ -199,13 +198,19 @@ class MoneyController extends Controller {
             $leadsIds = [];
 
             $leadsDateCreate = [];
+            $leadsDateClose = [];
+            $leadsStatusId = [];
+            
             $clientsIds = [];
             $amountLeads = count($data->{'response'}->{'leads'});
 
             for ($i = 0; $i < $amountLeads; $i ++) {
                     array_push($leadsIds, $data->{'response'}->{'leads'}[$i]->{'id'});
                     array_push($clientsIds, $data->{'response'}->{'leads'}[$i]->{'main_contact_id'});
-                    array_push($leadsDateCreate, date("d/m/Y H:i:s", $data->{'response'}->{'leads'}[$i]->{'date_create'}));
+                    // array_push($leadsDateCreate, date("d/m/Y H:i:s", $data->{'response'}->{'leads'}[$i]->{'date_create'}));
+                    array_push($leadsDateCreate, $data->{'response'}->{'leads'}[$i]->{'date_create'});
+                    array_push($leadsDateClose, $data->{'response'}->{'leads'}[$i]->{'date_close'});
+                    array_push($leadsStatusId, $data->{'response'}->{'leads'}[$i]->{'status_id'});
             }
             
             $link3 = 'https://'.$subdomain.'.amocrm.ru/private/api/v2/json/contacts/';
