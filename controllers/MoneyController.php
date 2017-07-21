@@ -426,6 +426,7 @@ class MoneyController extends Controller {
         return $array;
     }
     
+<<<<<<< HEAD
 
     function unparsePrice($data){ 
         $price= 0; 
@@ -443,3 +444,9 @@ class MoneyController extends Controller {
         }    
         return $price; 
     }
+=======
+        return $data[0]->{'values'}[0]->{'value'};
+    }
+	
+	
+>>>>>>> origin/master
