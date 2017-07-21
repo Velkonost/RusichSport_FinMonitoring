@@ -9,6 +9,8 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
+use app\models\Leads;
+
 
 class MoneyController extends Controller {
 
@@ -85,7 +87,7 @@ class MoneyController extends Controller {
         // First day of this month
         $d = strtotime(date('1-m-Y',strtotime('this month')));
 
-        $link2 = 'https://'.$subdomain.'.amocrm.ru/private/api/v2/json/leads/list?id='.$id.'&?date_create='.$d;
+        $link2 = 'https://'.$subdomain.'.amocrm.ru/private/api/v2/json/leads/list?date_create='.$d;
 
         $curl=curl_init(); #Сохраняем дескриптор сеанса cURL
         #Устанавливаем необходимые опции для сеанса cURL
@@ -106,14 +108,17 @@ class MoneyController extends Controller {
 
         $data = json_decode($out);
         $leadsIds = [];
+
         $leadsDateCreate = [];
         $clientsIds = [];
         $amountLeads = count($data->{'response'}->{'leads'});
 
         for ($i = 0; $i < $amountLeads; $i ++) {
-            array_push($leadsIds, $data->{'response'}->{'leads'}[$i]->{'id'});
-            array_push($clientsIds, $data->{'response'}->{'leads'}[$i]->{'main_contact_id'});
-            array_push($leadsDateCreate, date("d/m/Y H:i:s", $data->{'response'}->{'leads'}[$i]->{'date_create'}));
+            // if ($data->{'response'}->{'leads'}[$i]->{'date_create'} >= $d) {
+                array_push($leadsIds, $data->{'response'}->{'leads'}[$i]->{'id'});
+                array_push($clientsIds, $data->{'response'}->{'leads'}[$i]->{'main_contact_id'});
+                array_push($leadsDateCreate, date("d/m/Y H:i:s", $data->{'response'}->{'leads'}[$i]->{'date_create'}));
+            // }
         }
         
         $link3 = 'https://'.$subdomain.'.amocrm.ru/private/api/v2/json/contacts/';
@@ -141,16 +146,18 @@ class MoneyController extends Controller {
         $clientsCities = [];
 
 
-        for ($i = 0; $i < $amountLeads; $i ++) {
+        for ($i = 0; $i < count($clientsIds); $i ++) {
             array_push($clientsNames, $data->{'response'}->{'contacts'}[$i]->{'name'});
             array_push($clientsPhones, unparseContactPhone($data->{'response'}->{'contacts'}[$i]->{'custom_fields'}));
             
         }
 
+        new Leads;
+
         return $this->render('index',
         [
             'c' => $d,
-            'amount' => $amountLeads,
+            'amount' => count($clientsIds),
             'dates' => $leadsDateCreate,
             'names' => $clientsNames,
             'phones' => $clientsPhones
