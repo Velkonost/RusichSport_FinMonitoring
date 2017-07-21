@@ -115,16 +115,19 @@ class MoneyController extends Controller {
             $leadsDateCreate = [];
             $leadsDateClose = [];
             $leadsStatusId = [];
+            $leadsSdekSumma = [];
+
             $clientsIds = [];
             $amountLeads = count($data->{'response'}->{'leads'});
 
             for ($i = 0; $i < $amountLeads; $i ++) {
-                    array_push($leadsIds, $data->{'response'}->{'leads'}[$i]->{'id'});
-                    array_push($clientsIds, $data->{'response'}->{'leads'}[$i]->{'main_contact_id'});
-                    // array_push($leadsDateCreate, date("d/m/Y H:i:s", $data->{'response'}->{'leads'}[$i]->{'date_create'}));
-                    array_push($leadsDateCreate, $data->{'response'}->{'leads'}[$i]->{'date_create'});
-                    array_push($leadsDateClose, $data->{'response'}->{'leads'}[$i]->{'date_close'});
-                    array_push($leadsStatusId, $data->{'response'}->{'leads'}[$i]->{'status_id'});
+                array_push($leadsIds, $data->{'response'}->{'leads'}[$i]->{'id'});
+                array_push($clientsIds, $data->{'response'}->{'leads'}[$i]->{'main_contact_id'});
+                // array_push($leadsDateCreate, date("d/m/Y H:i:s", $data->{'response'}->{'leads'}[$i]->{'date_create'}));
+                array_push($leadsDateCreate, $data->{'response'}->{'leads'}[$i]->{'date_create'});
+                array_push($leadsDateClose, $data->{'response'}->{'leads'}[$i]->{'date_close'});
+                array_push($leadsStatusId, $data->{'response'}->{'leads'}[$i]->{'status_id'});
+                array_push($leadsSdekSumma, unparseSdekSumma($data->{'response'}->{'leads'}[$i]->{'custom_fields'}));
             }
             
             $link3 = 'https://'.$subdomain.'.amocrm.ru/private/api/v2/json/contacts/';
@@ -165,7 +168,11 @@ class MoneyController extends Controller {
                 $post->contact_name = $clientsNames[$i];
                 $post->contact_phone = $clientsPhones[$i];
                 $post->contact_city = "Город";
+                $post->lead_status = $leadsStatusId[$i];
 
+                $post->sdek_summa = $leadsSdekSumma[$i];
+
+                $post->lead_date_close = $leadsDateClose[$i];
                 $post->lead_date_create = $leadsDateCreate[$i];
 
                 $post->save();
@@ -200,17 +207,19 @@ class MoneyController extends Controller {
             $leadsDateCreate = [];
             $leadsDateClose = [];
             $leadsStatusId = [];
-            
+            $leadsSdekSumma = [];
+
             $clientsIds = [];
             $amountLeads = count($data->{'response'}->{'leads'});
 
             for ($i = 0; $i < $amountLeads; $i ++) {
-                    array_push($leadsIds, $data->{'response'}->{'leads'}[$i]->{'id'});
-                    array_push($clientsIds, $data->{'response'}->{'leads'}[$i]->{'main_contact_id'});
-                    // array_push($leadsDateCreate, date("d/m/Y H:i:s", $data->{'response'}->{'leads'}[$i]->{'date_create'}));
-                    array_push($leadsDateCreate, $data->{'response'}->{'leads'}[$i]->{'date_create'});
-                    array_push($leadsDateClose, $data->{'response'}->{'leads'}[$i]->{'date_close'});
-                    array_push($leadsStatusId, $data->{'response'}->{'leads'}[$i]->{'status_id'});
+                array_push($leadsIds, $data->{'response'}->{'leads'}[$i]->{'id'});
+                array_push($clientsIds, $data->{'response'}->{'leads'}[$i]->{'main_contact_id'});
+                // array_push($leadsDateCreate, date("d/m/Y H:i:s", $data->{'response'}->{'leads'}[$i]->{'date_create'}));
+                array_push($leadsDateCreate, $data->{'response'}->{'leads'}[$i]->{'date_create'});
+                array_push($leadsDateClose, $data->{'response'}->{'leads'}[$i]->{'date_close'});
+                array_push($leadsStatusId, $data->{'response'}->{'leads'}[$i]->{'status_id'});
+                array_push($leadsSdekSumma, unparseSdekSumma($data->{'response'}->{'leads'}[$i]->{'custom_fields'}));
             }
             
             $link3 = 'https://'.$subdomain.'.amocrm.ru/private/api/v2/json/contacts/';
@@ -251,7 +260,11 @@ class MoneyController extends Controller {
                 $post->contact_name = $clientsNames[$i];
                 $post->contact_phone = $clientsPhones[$i];
                 $post->contact_city = "Город";
+                $post->lead_status = $leadsStatusId[$i];
 
+                $post->sdek_summa = $leadsSdekSumma[$i];
+
+                $post->lead_date_close = $leadsDateClose[$i];
                 $post->lead_date_create = $leadsDateCreate[$i];
 
                 $post->save();
@@ -271,8 +284,24 @@ class MoneyController extends Controller {
     
 }
 
-  function unparseContactPhone($data){     
-        
-    
+    function unparseContactPhone($data){     
         return $data[0]->{'values'}[0]->{'value'};
     }
+
+    function unparseSdekSumma($data){    
+        
+        
+        // $data = json_decode($data);
+        // echo $data['response']['leads'][0]['custom_fields'];
+        // $data = ($data->{'response'}->{'leads'}[0]->{'custom_fields'});
+        $array;
+        // $g = 0;
+        for($i = 0; $i<count($data); $i++){
+            if(strcmp($data[$i]->{'name'}, "Стоимость доставки")==0){
+                $array = $data[$i]->{'values'}[0]->{'value'};
+                break;
+            }
+        }
+        return $array;
+    }
+    
