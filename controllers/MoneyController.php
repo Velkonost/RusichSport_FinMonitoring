@@ -17,7 +17,7 @@ class MoneyController extends Controller {
     private $startPeriod = 0;
     private $finishPeriod = 0;
     public $layout = 'money';
-
+	
     public function behaviors()
     {
         return [
@@ -49,6 +49,12 @@ class MoneyController extends Controller {
         }
         return parent::beforeAction($action);
     }
+	
+	public function actionGetpost(){
+		return $this->render('getPosts',
+        []);
+	}
+	
 
     public function actionIndex()
     {
@@ -162,6 +168,7 @@ class MoneyController extends Controller {
             }
 
             for ($i = 0; $i < count($clientsIds); $i ++) {
+				
                 $post = new Leads;
                 $post->lead_id = $leadsIds[$i];
                 $post->critical_acc = "Ответственный";
@@ -284,7 +291,14 @@ class MoneyController extends Controller {
     
 }
 
+<<<<<<< HEAD
     function unparseContactPhone($data){     
+=======
+
+  function unparseContactPhone($data){     
+        
+    
+>>>>>>> origin/master
         return $data[0]->{'values'}[0]->{'value'};
     }
 
