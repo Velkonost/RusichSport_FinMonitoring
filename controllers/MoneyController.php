@@ -284,3 +284,5 @@ class MoneyController extends Controller {
     
         return $data[0]->{'values'}[0]->{'value'};
     }
+	
+	

@@ -7,7 +7,8 @@
 	use yii\filters\VerbFilter;
 	use app\models\Leads;
 	$date = $_GET['date'];
-	$get = Yii::$app->db->createCommand("SELECT * FROM leads WHERE lead_date_	create > '$date'")
+	$date2 = $_GET['date2'];
+	$get = Yii::$app->db->createCommand("SELECT * FROM leads WHERE lead_date_create BETWEEN '$date' AND 'date2'")
 		->queryAll();
 	echo $date;
 	echo var_dump($get);
