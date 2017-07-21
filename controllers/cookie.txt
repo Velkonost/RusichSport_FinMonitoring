@@ -5,5 +5,9 @@
 .amocrm.ru	TRUE	/	FALSE	0	session_id	qkdet7n8o9aisk5kbef64s9rdkfq99et1gmgunkvh67pdldvmqv0
 .amocrm.ru	TRUE	/	FALSE	1656131666	BITRIX_SM_LOGIN	kranfear%40mail.ru
 .amocrm.ru	TRUE	/	FALSE	1531715666	BITRIX_SM_SALE_UID	0
+<<<<<<< HEAD
 .amocrm.ru	TRUE	/	FALSE	1658395804	user_lang	ru
+=======
+.amocrm.ru	TRUE	/	FALSE	1658384551	user_lang	ru
+>>>>>>> a7200c66131395e24003313bc67033dd552f777d
 .amocrm.ru	TRUE	/	FALSE	0	BITRIX_SM_SOUND_LOGIN_PLAYED	Y
