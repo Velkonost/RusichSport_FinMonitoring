@@ -48,10 +48,10 @@ $month = date('m');
 	<div class="money-filter-container">
 		<div class="fixed">
 			<?php
-			echo Html::dropDownList('date_period', $month.'-'.$year, $filter['months'], [
-				'class'=>'form-control date-period-selector',
-				'data-url' => str_replace('?' . Yii::$app->getRequest()->getQueryString(), '', Yii::$app->getRequest()->getUrl())
-			]);
+			// echo Html::dropDownList('date_period', $month.'-'.$year, $filter['months'], [
+			// 	'class'=>'form-control date-period-selector',
+			// 	'data-url' => str_replace('?' . Yii::$app->getRequest()->getQueryString(), '', Yii::$app->getRequest()->getUrl())
+			// ]);
 			?><span class="filter-values"><?php echo $c;
 				?></span><?php
 			?>
@@ -100,7 +100,7 @@ $month = date('m');
 								<?php echo $names[$i] ?>
 							</div>
 						</div>
-						<div class="money-table-cell money-column-phone"><?=$phones[$i] ?></div>
+						<div class="money-table-cell money-column-phone"></div>
 						<div class="money-table-cell">
 							<div class="money-table-long-data money-column-city">Город</div>
 						</div>
