@@ -24,15 +24,21 @@ $this->title = 'Финансовый мониторинг';
 
 $year = date('Y');
 $month = date('m');
-if (!empty($_GET['date_period'])) {
+/*if (!empty($_GET['date_period'])) {
 	$period = explode('-', $_GET['date_period']);
 	$month = substr('0' . $period[0], -2, 2);
 	$year = $period[1];
-}
+}*/
 
 
 
 ?>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<select id = "test">
+	<option onclick="call();" value="Июль">Июль</option>
+</select>
 <form id="money-search-form" action="<?= $_SERVER['REQUEST_URI'] ?>" method="get">
 	<?= Html::hiddenInput(\Yii::$app->getRequest()->csrfParam, \Yii::$app->getRequest()->getCsrfToken(), []) ?>
 	<div class="money-filter-container">
@@ -74,20 +80,20 @@ if (!empty($_GET['date_period'])) {
 		
 
 		<div class="money-table-rows js-money-table-rows">
-				<?php for ($i = 0; $i < $amount; $i++) { ?>
-					<div class="money-table-row money-table-row-data money-item-<?= $model->id ?> <?= ($k%2==0) ? 'row-even' : 'row-odd' ?>" data-id="<?= $model->id ?>">
+				<?php // for ($i = 0; $i < $amount; $i++) { ?>
+					<div class="money-table-row money-table-row-data money-item-<?php //echo $model->id ?> <?php //echo ($k%2==0) ? 'row-even' : 'row-odd' ?>" data-id="<?php //echo $model->id ?>">
 						<div class="money-table-cell">
 							<div class="money-table-long-data money-column-client_menedger"><!-- don't replace "_" in client_name it's special field marker -->
 
 							Ответственный
-								<!-- <?php if(isset($manager[$model->responsible_user_id])) { ?>
-									<?= $manager[$model->responsible_user_id] ?>
-								<?php } ?> -->
+								<!-- <?php //if(isset($manager[$model->responsible_user_id])) { ?>
+									<?php  //$manager[$model->responsible_user_id] ?>
+								<?php //} ?> -->
 							</div>
 						</div>
 						<div class="money-table-cell">
 							<div class="money-table-long-data money-column-client_name"><!-- don't replace "_" in client_name it's special field marker -->
-								<?=$names[$i] ?>
+								<?php //echo $names[$i] ?>
 							</div>
 						</div>
 						<div class="money-table-cell money-column-phone"><?=$phones[$i] ?></div>
@@ -95,14 +101,14 @@ if (!empty($_GET['date_period'])) {
 							<div class="money-table-long-data money-column-city">Город</div>
 						</div>
 						<div class="money-table-cell small-paddings">
-						<?=$dates[$i]?>
+						<?php //echo $dates[$i]?>
 							<!-- <?php
-							if ($model->status) {
+						/*	if ($model->status) {
 								echo '<span class="status-label" style="background-color: ' . $model->status->color . ';">'
 									. $model->status->label . '</span>';
 							} else {
 								echo '---';
-							}
+							}*/
 							?> -->
 						</div>
 						<div class="money-table-cell">
@@ -111,7 +117,7 @@ if (!empty($_GET['date_period'])) {
 							</a>
 						</div>
 					</div>
-				<?php } ?>
+				<?php // } ?>
 				<div class="money-table-row money-total-row">
 					<div class="money-table-cell">&nbsp;</div>
 				</div>
@@ -169,3 +175,19 @@ if (!empty($_GET['date_period'])) {
 	</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+
+<script type="text/javascript" language="javascript">
+ 	function call() {
+        $.ajax({
+          type: 'GET',
+          url: 'index.php?r=money/getpost&date=1498867200&date2=1501545600',
+          success: function(data) {
+            alert($.trim(data));
+          },
+          error:  function(xhr, str){
+			alert('Возникла ошибка: ' + xhr.responseCode);
+          }
+        });
+ 
+    }
+</script>
