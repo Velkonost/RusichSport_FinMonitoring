@@ -84,7 +84,7 @@ $month = date('m');
 		
 
 		<div class="money-table-rows js-money-table-rows">
-				<?php // for ($i = 0; $i < $amount; $i++) { ?>
+				<?php for ($i = 0; $i < $amount; $i++) { ?>
 					<div class="money-table-row money-table-row-data money-item-<?php //echo $model->id ?> <?php //echo ($k%2==0) ? 'row-even' : 'row-odd' ?>" data-id="<?php //echo $model->id ?>">
 						<div class="money-table-cell">
 							<div class="money-table-long-data money-column-client_menedger"><!-- don't replace "_" in client_name it's special field marker -->
@@ -97,7 +97,7 @@ $month = date('m');
 						</div>
 						<div class="money-table-cell">
 							<div class="money-table-long-data money-column-client_name"><!-- don't replace "_" in client_name it's special field marker -->
-								<?php //echo $names[$i] ?>
+								<?php echo $names[$i] ?>
 							</div>
 						</div>
 						<div class="money-table-cell money-column-phone"><?=$phones[$i] ?></div>
@@ -121,7 +121,7 @@ $month = date('m');
 							</a>
 						</div>
 					</div>
-				<?php // } ?>
+				<?php  } ?>
 				<div class="money-table-row money-total-row">
 					<div class="money-table-cell">&nbsp;</div>
 				</div>
