@@ -19,7 +19,7 @@ class MoneyController extends Controller {
     private $startPeriod = 0;
     private $finishPeriod = 0;
     public $layout = 'money';
-	
+    
     public function behaviors()
     {
         return [
@@ -51,12 +51,12 @@ class MoneyController extends Controller {
         }
         return parent::beforeAction($action);
     }
-	
-	public function actionGetpost(){
-		return $this->render('getPosts',
+    
+    public function actionGetpost(){
+        return $this->render('getPosts',
         []);
-	}
-	
+    }
+    
     public function actionWebhook() {
         try {
             $listenerContact = new \AmoCRM\Webhooks\Listener();
@@ -222,7 +222,7 @@ class MoneyController extends Controller {
                     array_push($leadsPrice, unparsePrice($data->{'response'}->{'leads'}[$i]->{'custom_fields'}));
 
                 }
-
+ 
                 for ($i = 0; $i < count($clientsIds); $i ++) {
                     
                     $post = new Leads;
@@ -345,14 +345,10 @@ class MoneyController extends Controller {
 
                 }
 
-               // sleep(2);
+                sleep(2);
             }
 
-<<<<<<< HEAD
-            /*$link2 = 'https://'.$subdomain.'.amocrm.ru/private/api/v2/json/contacts/list?limit_rows=172&limit_offset='.$offset;
-=======
             $link2 = 'https://'.$subdomain.'.amocrm.ru/private/api/v2/json/contacts/list?limit_rows=500&limit_offset='.$offset;
->>>>>>> b8c67f7ccf04e48ecfada91c0b6abb2a301a4e45
 
             $curl=curl_init(); #Сохраняем дескриптор сеанса cURL
             #Устанавливаем необходимые опции для сеанса cURL
@@ -376,8 +372,8 @@ class MoneyController extends Controller {
             $clientsNames = [];
             $clientsPhones = [];
             $clientsCities = [];
-            $clientsIds = [];*/
-/*
+            $clientsIds = [];
+
             for ($i = 0; $i < $amountContacts; $i ++) {
                 
                 array_push($clientsNames, $data->{'response'}->{'contacts'}[$i]->{'name'});
@@ -396,9 +392,9 @@ class MoneyController extends Controller {
 
                 $post->save();
 
-            }*/
+            }
 
-//            sleep(2);
+            sleep(2);
 
             //LEADS
             $offset = 0;
@@ -432,7 +428,7 @@ class MoneyController extends Controller {
                 $clientsIds = [];
                 $amountLeads = count($data->{'response'}->{'leads'});
 
-           /*     for ($i = 0; $i < $amountLeads; $i ++) {
+                for ($i = 0; $i < $amountLeads; $i ++) {
                     array_push($leadsIds, $data->{'response'}->{'leads'}[$i]->{'id'});
                     array_push($clientsIds, $data->{'response'}->{'leads'}[$i]->{'main_contact_id'});
                     // array_push($leadsDateCreate, date("d/m/Y H:i:s", $data->{'response'}->{'leads'}[$i]->{'date_create'}));
@@ -442,52 +438,10 @@ class MoneyController extends Controller {
                     array_push($leadsSdekSumma, unparseSdekSumma($data->{'response'}->{'leads'}[$i]->{'custom_fields'}));
                     array_push($leadsPrice, unparsePrice($data->{'response'}->{'leads'}[$i]->{'custom_fields'}));
 
-<<<<<<< HEAD
-                    $client = Contacts::find()->where("contact_id='". $data->{'response'}->{'leads'}[$i]->{'main_contact_id'} ."'")->one();
-                    array_push($clientsNames, $client->name);
-                    array_push($clientsPhones, $client->phone);
-                    array_push($clientsCities, $client->city);
-                }*/
-                
-                // $link3 = 'https://'.$subdomain.'.amocrm.ru/private/api/v2/json/contacts/list?limit_rows=500&limit_offset='.$offset;
-
-                // $curl=curl_init(); #Сохраняем дескриптор сеанса cURL
-                // #Устанавливаем необходимые опции для сеанса cURL
-                // curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
-                // curl_setopt($curl,CURLOPT_USERAGENT,'amoCRM-API-client/1.0');
-                // curl_setopt($curl,CURLOPT_URL,$link3);
-                // curl_setopt($curl,CURLOPT_HEADER,false);
-                // curl_setopt($curl,CURLOPT_COOKIEFILE,__DIR__.'/cookie.txt'); #PHP>5.3.6 dirname(__FILE__) -> __DIR__
-                // curl_setopt($curl,CURLOPT_COOKIEJAR,__DIR__.'/cookie.txt'); #PHP>5.3.6 dirname(__FILE__) -> __DIR__
-                // curl_setopt($curl,CURLOPT_SSL_VERIFYPEER,0);
-                // curl_setopt($curl,CURLOPT_SSL_VERIFYHOST,0);
-
-                // $out=curl_exec($curl); #Инициируем запрос к API и сохраняем ответ в переменную
-                // $code=curl_getinfo($curl,CURLINFO_HTTP_CODE);
-                // curl_close($curl);
-                // $data = json_decode($out);
-
-                // $amountContacts = count($data->{'response'}->{'contacts'});
-
-                
-
-
-                // for ($i = 0; $i < count($clientsIds); $i ++) {
-                //     if ($clientsIds[$i] == false) {
-                //         array_push($clientsNames, "");
-                //         array_push($clientsPhones, "");       
-                //     } else {
-                //         array_push($clientsNames, $data->{'response'}->{'contacts'}[$i]->{'name'});
-                //         array_push($clientsPhones, unparseContactPhone($data->{'response'}->{'contacts'}[$i]->{'custom_fields'}));       
-                //     }
-                    
-                // }
-=======
                 }
->>>>>>> b8c67f7ccf04e48ecfada91c0b6abb2a301a4e45
 
-           /*     for ($i = 0; $i < count($clientsIds); $i ++) {
-    				
+                for ($i = 0; $i < count($clientsIds); $i ++) {
+                    
                     $post = new Leads;
                     $post->lead_id = $leadsIds[$i];
                     $post->critical_acc = "Ответственный";
@@ -505,10 +459,10 @@ class MoneyController extends Controller {
 
                 }
 
-                sleep(2);*/
+                sleep(2);
             }
 
-       /*     $link2 = 'https://'.$subdomain.'.amocrm.ru/private/api/v2/json/leads/list?limit_rows=281&limit_offset='.$offset;
+            $link2 = 'https://'.$subdomain.'.amocrm.ru/private/api/v2/json/leads/list?limit_rows=281&limit_offset='.$offset;
 
             $curl=curl_init(); #Сохраняем дескриптор сеанса cURL
             #Устанавливаем необходимые опции для сеанса cURL
@@ -547,55 +501,9 @@ class MoneyController extends Controller {
                 array_push($leadsSdekSumma, unparseSdekSumma($data->{'response'}->{'leads'}[$i]->{'custom_fields'}));
                 array_push($leadsPrice, unparsePrice($data->{'response'}->{'leads'}[$i]->{'custom_fields'}));
 
-<<<<<<< HEAD
-                $client = Contacts::find()->where("contact_id='". $data->{'response'}->{'leads'}[$i]->{'main_contact_id'} ."'")->one();
-                array_push($clientsNames, $client->name);
-                array_push($clientsPhones, $client->phone);
-                array_push($clientsCities, $client->city);
-            }*/
-        
-        // $link3 = 'https://'.$subdomain.'.amocrm.ru/private/api/v2/json/contacts/list?limit_rows=281&limit_offset='.$offset;
-
-        // $curl=curl_init(); #Сохраняем дескриптор сеанса cURL
-        // #Устанавливаем необходимые опции для сеанса cURL
-        // curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
-        // curl_setopt($curl,CURLOPT_USERAGENT,'amoCRM-API-client/1.0');
-        // curl_setopt($curl,CURLOPT_URL,$link3);
-        // curl_setopt($curl,CURLOPT_HEADER,false);
-        // curl_setopt($curl,CURLOPT_COOKIEFILE,__DIR__.'/cookie.txt'); #PHP>5.3.6 dirname(__FILE__) -> __DIR__
-        // curl_setopt($curl,CURLOPT_COOKIEJAR,__DIR__.'/cookie.txt'); #PHP>5.3.6 dirname(__FILE__) -> __DIR__
-        // curl_setopt($curl,CURLOPT_SSL_VERIFYPEER,0);
-        // curl_setopt($curl,CURLOPT_SSL_VERIFYHOST,0);
-
-        // $out=curl_exec($curl); #Инициируем запрос к API и сохраняем ответ в переменную
-        // $code=curl_getinfo($curl,CURLINFO_HTTP_CODE);
-        // curl_close($curl);
-        // $data = json_decode($out);
-
-        // $amountContacts = count($data->{'response'}->{'contacts'});
-
-        // $clientsNames = [];
-        // $clientsPhones = [];
-        // $clientsCities = [];
-
-
-        // for ($i = 0; $i < count($clientsIds); $i ++) {
-        //     if ($clientsIds[$i] == false) {
-        //         array_push($clientsNames, "");
-        //         array_push($clientsPhones, "");       
-        //     } else {
-        //         array_push($clientsNames, $data->{'response'}->{'contacts'}[$i]->{'name'});
-        //         array_push($clientsPhones, unparseContactPhone($data->{'response'}->{'contacts'}[$i]->{'custom_fields'}));       
-        //     }
-            
-        // }
-
-         /*   for ($i = 0; $i < count($clientsIds); $i ++) {
-=======
             }
 
             for ($i = 0; $i < count($clientsIds); $i ++) {
->>>>>>> b8c67f7ccf04e48ecfada91c0b6abb2a301a4e45
                 $post = new Leads;
                 $post->lead_id = $leadsIds[$i];
                 $post->critical_acc = "Ответственный";
@@ -613,10 +521,6 @@ class MoneyController extends Controller {
 
             }
 
-<<<<<<< HEAD
-            $check->value = '1';
-            $check->save();*/
-=======
             $check->meta_value = '1';
             $check->save();
         } else {
@@ -647,7 +551,6 @@ class MoneyController extends Controller {
 
                 array_push($clientsIds, $key->contact_id);
             }
->>>>>>> b8c67f7ccf04e48ecfada91c0b6abb2a301a4e45
         }
 
         return $this->render('index',
