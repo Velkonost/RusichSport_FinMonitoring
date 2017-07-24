@@ -116,7 +116,7 @@ $month = date('m');
 							?> -->
 						</div>
 						<div class="money-table-cell">
-							<a href="https://jbyss.amocrm.ru/leads/detail/<?= $model->ext_id ?>" title="Перейти в сделку AMOCRM" target="_blank">
+							<a href="https://new584549b112ca4.amocrm.ru/leads/detail/<?= $ids[$i]; ?>" title="Перейти в сделку AMOCRM" target="_blank">
 								<img src="/web/images/money_arr.png">
 							</a>
 						</div>
