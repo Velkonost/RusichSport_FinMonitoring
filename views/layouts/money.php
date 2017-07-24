@@ -11,9 +11,6 @@ use app\assets\AppAsset;
 
 AppAsset::register($this);
 
-$pageId = Yii::$app->controller->id . '-' . Yii::$app->controller->action->id;
-$controller = Yii::$app->controller->id;
-$user = Yii::$app->user->identity;
 
 ?>
 <?php $this->beginPage() ?>
@@ -21,19 +18,10 @@ $user = Yii::$app->user->identity;
 
 <?php $this->beginBody() ?>
 
-        <?php
-        if ($controller == 'user') {
-            echo Breadcrumbs::widget([
-                'homeLink' => false,
-                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-            ]);
-        }
-        ?>
+       
 
         <?= $content ?>
 
 
 <?php $this->endBody() ?>
-</body>
-</html>
 <?php $this->endPage() ?>

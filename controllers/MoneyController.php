@@ -147,10 +147,10 @@ class MoneyController extends Controller {
 
                 }
 
-                sleep(2);
+               // sleep(2);
             }
 
-            $link2 = 'https://'.$subdomain.'.amocrm.ru/private/api/v2/json/contacts/list?limit_rows=172&limit_offset='.$offset;
+            /*$link2 = 'https://'.$subdomain.'.amocrm.ru/private/api/v2/json/contacts/list?limit_rows=172&limit_offset='.$offset;
 
             $curl=curl_init(); #Сохраняем дескриптор сеанса cURL
             #Устанавливаем необходимые опции для сеанса cURL
@@ -174,8 +174,8 @@ class MoneyController extends Controller {
             $clientsNames = [];
             $clientsPhones = [];
             $clientsCities = [];
-            $clientsIds = [];
-
+            $clientsIds = [];*/
+/*
             for ($i = 0; $i < $amountContacts; $i ++) {
                 
                 array_push($clientsNames, $data->{'response'}->{'contacts'}[$i]->{'name'});
@@ -194,9 +194,9 @@ class MoneyController extends Controller {
 
                 $post->save();
 
-            }
+            }*/
 
-            sleep(2);
+//            sleep(2);
 
             //LEADS
             $offset = 0;
@@ -234,7 +234,7 @@ class MoneyController extends Controller {
                 $clientsIds = [];
                 $amountLeads = count($data->{'response'}->{'leads'});
 
-                for ($i = 0; $i < $amountLeads; $i ++) {
+           /*     for ($i = 0; $i < $amountLeads; $i ++) {
                     array_push($leadsIds, $data->{'response'}->{'leads'}[$i]->{'id'});
                     array_push($clientsIds, $data->{'response'}->{'leads'}[$i]->{'main_contact_id'});
                     // array_push($leadsDateCreate, date("d/m/Y H:i:s", $data->{'response'}->{'leads'}[$i]->{'date_create'}));
@@ -248,7 +248,7 @@ class MoneyController extends Controller {
                     array_push($clientsNames, $client->name);
                     array_push($clientsPhones, $client->phone);
                     array_push($clientsCities, $client->city);
-                }
+                }*/
                 
                 // $link3 = 'https://'.$subdomain.'.amocrm.ru/private/api/v2/json/contacts/list?limit_rows=500&limit_offset='.$offset;
 
@@ -284,7 +284,7 @@ class MoneyController extends Controller {
                     
                 // }
 
-                for ($i = 0; $i < count($clientsIds); $i ++) {
+           /*     for ($i = 0; $i < count($clientsIds); $i ++) {
     				
                     $post = new Leads;
                     $post->lead_id = $leadsIds[$i];
@@ -304,10 +304,10 @@ class MoneyController extends Controller {
 
                 }
 
-                sleep(2);
+                sleep(2);*/
             }
 
-            $link2 = 'https://'.$subdomain.'.amocrm.ru/private/api/v2/json/leads/list?limit_rows=281&limit_offset='.$offset;
+       /*     $link2 = 'https://'.$subdomain.'.amocrm.ru/private/api/v2/json/leads/list?limit_rows=281&limit_offset='.$offset;
 
             $curl=curl_init(); #Сохраняем дескриптор сеанса cURL
             #Устанавливаем необходимые опции для сеанса cURL
@@ -354,8 +354,7 @@ class MoneyController extends Controller {
                 array_push($clientsNames, $client->name);
                 array_push($clientsPhones, $client->phone);
                 array_push($clientsCities, $client->city);
-            }
-
+            }*/
         
         // $link3 = 'https://'.$subdomain.'.amocrm.ru/private/api/v2/json/contacts/list?limit_rows=281&limit_offset='.$offset;
 
@@ -393,7 +392,7 @@ class MoneyController extends Controller {
             
         // }
 
-            for ($i = 0; $i < count($clientsIds); $i ++) {
+         /*   for ($i = 0; $i < count($clientsIds); $i ++) {
                 $post = new Leads;
                 $post->lead_id = $leadsIds[$i];
                 $post->critical_acc = "Ответственный";
@@ -413,7 +412,7 @@ class MoneyController extends Controller {
             }
 
             $check->value = '1';
-            $check->save();
+            $check->save();*/
         }
 
         return $this->render('index',
