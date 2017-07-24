@@ -33,6 +33,10 @@ $month = date('m');
 
 
 ?>
+<meta charset="<?= Yii::$app->charset ?>">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?= Html::csrfMetaTags() ?>
+<?php $this->head() ?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -182,7 +186,10 @@ $month = date('m');
           type: 'GET',
           url: 'index.php?r=money/getpost&date=1498867200&date2=1501545600',
           success: function(data) {
-            alert($.trim(data));
+            //alert($.trim(data));
+			//data = JSON.stringify(data);
+			data = data.replace(' ','');
+			alert(data);
           },
           error:  function(xhr, str){
 			alert('Возникла ошибка: ' + xhr.responseCode);
