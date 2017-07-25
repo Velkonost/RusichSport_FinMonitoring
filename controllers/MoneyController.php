@@ -247,6 +247,193 @@ class MoneyController extends Controller {
         } catch (\AmoCRM\Exception $e) {
             printf('Error (%d): %s' . PHP_EOL, $e->getCode(), $e->getMessage());
         }
+
+        try {
+            $listenerStatus = new \AmoCRM\Webhooks\Listener();
+            $listenerStatus->on('status_lead', function ($domain, $id, $data) {
+                $user=array(
+                  'USER_LOGIN'=>'kranfear@mail.ru', #Ваш логин (электронная почта)
+                  'USER_HASH'=>'38f2e3461e664db15032bcab8b7c26e8' #Хэш для доступа к API (смотрите в профиле пользователя)
+                );
+         
+                $subdomain='new584549b112ca4'; #Наш аккаунт - поддомен
+         
+                #Формируем ссылку для запроса
+                $link='https://'.$subdomain.'.amocrm.ru/private/api/auth.php?type=json';
+
+                $curl=curl_init(); #Сохраняем дескриптор сеанса cURL
+                #Устанавливаем необходимые опции для сеанса cURL
+                curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
+                curl_setopt($curl,CURLOPT_USERAGENT,'amoCRM-API-client/1.0');
+                curl_setopt($curl,CURLOPT_URL,$link);
+                curl_setopt($curl,CURLOPT_CUSTOMREQUEST,'POST');
+                curl_setopt($curl,CURLOPT_POSTFIELDS,json_encode($user));
+                curl_setopt($curl,CURLOPT_HTTPHEADER,array('Content-Type: application/json'));
+                curl_setopt($curl,CURLOPT_HEADER,false);
+                curl_setopt($curl,CURLOPT_COOKIEFILE,__DIR__.'/cookie.txt'); #PHP>5.3.6 dirname(__FILE__) -> __DIR__
+                curl_setopt($curl,CURLOPT_COOKIEJAR,__DIR__.'/cookie.txt'); #PHP>5.3.6 dirname(__FILE__) -> __DIR__
+                curl_setopt($curl,CURLOPT_SSL_VERIFYPEER,0);
+                curl_setopt($curl,CURLOPT_SSL_VERIFYHOST,0);
+                 
+                $out=curl_exec($curl); #Инициируем запрос к API и сохраняем ответ в переменную
+                $code=curl_getinfo($curl,CURLINFO_HTTP_CODE); #Получим HTTP-код ответа сервера
+                curl_close($curl); #Завершаем сеанс cURL
+
+                sleep(2);
+
+                $link2 = 'https://'.$subdomain.'.amocrm.ru/private/api/v2/json/leads/list?id[]='.$id;
+
+                $curl=curl_init(); #Сохраняем дескриптор сеанса cURL
+                #Устанавливаем необходимые опции для сеанса cURL
+                curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
+                curl_setopt($curl,CURLOPT_USERAGENT,'amoCRM-API-client/1.0');
+                curl_setopt($curl,CURLOPT_URL,$link2);
+                curl_setopt($curl,CURLOPT_HEADER,false);
+                curl_setopt($curl,CURLOPT_COOKIEFILE,__DIR__.'/cookie.txt'); #PHP>5.3.6 dirname(__FILE__) -> __DIR__
+                curl_setopt($curl,CURLOPT_COOKIEJAR,__DIR__.'/cookie.txt'); #PHP>5.3.6 dirname(__FILE__) -> __DIR__
+                curl_setopt($curl,CURLOPT_SSL_VERIFYPEER,0);
+                curl_setopt($curl,CURLOPT_SSL_VERIFYHOST,0);
+
+                $out=curl_exec($curl); #Инициируем запрос к API и сохраняем ответ в переменную
+                $code=curl_getinfo($curl,CURLINFO_HTTP_CODE);
+                curl_close($curl);
+                $status = unparseStatus($out);
+
+                //12988851 - ДОСТАВЛЕН
+                //142 - УСПЕШНО ДОСТАВЛЕН
+                //143 - ВОЗВРАТ ТОВАРА
+                //12998565 - ВОЗВРАТ
+                //12988845 - ОТПРАВЛЕН
+
+
+                $data = json_decode($out);
+          
+                $update = Leads::find()->where("lead_id='$id'")->one();
+                $update->lead_status = $status;
+                $date = $data->{'response'}->{'leads'}[0]->{'last_modified'};
+                
+
+                if ($status == 12988851) {
+                    $update->lead_date_delivered = $date;
+                } else if ($status == 142) {
+                    $update->lead_date_success_delivered = $date;
+                    $update->lead_date_close = $data->{'response'}->{'leads'}[$i]->{'date_close'};
+                } else if ($status == 12998565) {
+                    $update->lead_date_reset = $date;
+                } else if ($status == 12988845) {
+                    $update->lead_date_send = $date;
+                } else if ($status == 143) {
+                    $update->lead_date_reset_thing = $date;
+                    $update->lead_date_close = $data->{'response'}->{'leads'}[$i]->{'date_close'};
+                }
+
+                $update->save();
+    
+            });
+            $listenerStatus -> listen();
+        } catch (\AmoCRM\Exception $e) {
+            printf('Error (%d): %s' . PHP_EOL, $e->getCode(), $e->getMessage());
+        }
+
+        try {
+            $listenerUpdate = new \AmoCRM\Webhooks\Listener();
+            $listenerUpdate->on('update_lead', function ($domain, $id, $data) {
+                $user=array(
+                  'USER_LOGIN'=>'kranfear@mail.ru', #Ваш логин (электронная почта)
+                  'USER_HASH'=>'38f2e3461e664db15032bcab8b7c26e8' #Хэш для доступа к API (смотрите в профиле пользователя)
+                );
+         
+                $subdomain='new584549b112ca4'; #Наш аккаунт - поддомен
+         
+                #Формируем ссылку для запроса
+                $link='https://'.$subdomain.'.amocrm.ru/private/api/auth.php?type=json';
+
+                $curl=curl_init(); #Сохраняем дескриптор сеанса cURL
+                #Устанавливаем необходимые опции для сеанса cURL
+                curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
+                curl_setopt($curl,CURLOPT_USERAGENT,'amoCRM-API-client/1.0');
+                curl_setopt($curl,CURLOPT_URL,$link);
+                curl_setopt($curl,CURLOPT_CUSTOMREQUEST,'POST');
+                curl_setopt($curl,CURLOPT_POSTFIELDS,json_encode($user));
+                curl_setopt($curl,CURLOPT_HTTPHEADER,array('Content-Type: application/json'));
+                curl_setopt($curl,CURLOPT_HEADER,false);
+                curl_setopt($curl,CURLOPT_COOKIEFILE,__DIR__.'/cookie.txt'); #PHP>5.3.6 dirname(__FILE__) -> __DIR__
+                curl_setopt($curl,CURLOPT_COOKIEJAR,__DIR__.'/cookie.txt'); #PHP>5.3.6 dirname(__FILE__) -> __DIR__
+                curl_setopt($curl,CURLOPT_SSL_VERIFYPEER,0);
+                curl_setopt($curl,CURLOPT_SSL_VERIFYHOST,0);
+                 
+                $out=curl_exec($curl); #Инициируем запрос к API и сохраняем ответ в переменную
+                $code=curl_getinfo($curl,CURLINFO_HTTP_CODE); #Получим HTTP-код ответа сервера
+                curl_close($curl); #Завершаем сеанс cURL
+
+                sleep(2);
+
+                $link2 = 'https://'.$subdomain.'.amocrm.ru/private/api/v2/json/leads/list?id='.$id;
+
+                // $link2 = 'https://'.$subdomain.'.amocrm.ru/private/api/v2/json/leads/list?limit_rows=500&limit_offset='.$offset;
+
+                $curl=curl_init(); #Сохраняем дескриптор сеанса cURL
+                #Устанавливаем необходимые опции для сеанса cURL
+                curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
+                curl_setopt($curl,CURLOPT_USERAGENT,'amoCRM-API-client/1.0');
+                curl_setopt($curl,CURLOPT_URL,$link2);
+                curl_setopt($curl,CURLOPT_HEADER,false);
+                curl_setopt($curl,CURLOPT_COOKIEFILE,__DIR__.'/cookie.txt'); #PHP>5.3.6 dirname(__FILE__) -> __DIR__
+                curl_setopt($curl,CURLOPT_COOKIEJAR,__DIR__.'/cookie.txt'); #PHP>5.3.6 dirname(__FILE__) -> __DIR__
+                curl_setopt($curl,CURLOPT_SSL_VERIFYPEER,0);
+                curl_setopt($curl,CURLOPT_SSL_VERIFYHOST,0);
+
+                $out=curl_exec($curl); #Инициируем запрос к API и сохраняем ответ в переменную
+                $code=curl_getinfo($curl,CURLINFO_HTTP_CODE);
+                curl_close($curl);
+
+                $data = json_decode($out);
+
+                $leadsIds = [];
+                $leadsDateCreate = [];
+                $leadsDateClose = [];
+                $leadsStatusId = [];
+                $leadsSdekSumma = [];
+                $leadsPrice = [];
+
+                $clientsIds = [];
+                $amountLeads = count($data->{'response'}->{'leads'});
+
+                for ($i = 0; $i < $amountLeads; $i ++) {
+                    array_push($leadsIds, $data->{'response'}->{'leads'}[$i]->{'id'});
+                    array_push($clientsIds, $data->{'response'}->{'leads'}[$i]->{'main_contact_id'});
+                    
+                    array_push($leadsDateCreate, $data->{'response'}->{'leads'}[$i]->{'date_create'});
+                    array_push($leadsDateClose, $data->{'response'}->{'leads'}[$i]->{'date_close'});
+                    array_push($leadsStatusId, $data->{'response'}->{'leads'}[$i]->{'status_id'});
+                    array_push($leadsSdekSumma, unparseSdekSumma($data->{'response'}->{'leads'}[$i]->{'custom_fields'}));
+                    array_push($leadsPrice, unparsePrice($data->{'response'}->{'leads'}[$i]->{'custom_fields'}));
+
+                }
+ 
+                for ($i = 0; $i < count($clientsIds); $i ++) {
+                    
+                    $post = Leads::find()->where("lead_id='$id'")->one();
+                    // $post->lead_id = $leadsIds[$i];
+                    // $post->critical_acc = "Ответственный";
+                    $post->contact_id = $clientsIds[$i];
+                    $post->lead_status = $leadsStatusId[$i];
+
+                    $post->lead_summa = $leadsPrice[$i];
+                    $post->sdek_summa = $leadsSdekSumma[$i];
+
+                    $post->lead_date_close = $leadsDateClose[$i];
+
+                    $post->save();
+
+                }
+
+                // sleep(2);
+            });
+            $listenerUpdate -> listen();
+        } catch (\AmoCRM\Exception $e) {
+            printf('Error (%d): %s' . PHP_EOL, $e->getCode(), $e->getMessage());
+        }
         return $this->render('webhook');
 
     }
@@ -603,3 +790,12 @@ function unparsePrice($data){
     }    
     return $price; 
 }
+
+function unparseStatus($data){    
+        
+        
+        $data = json_decode($data);
+        // echo $data['response']['leads'][0]['custom_fields'];
+        $data = ($data->{'response'}->{'leads'}[0]->{'status_id'});
+        return $data;
+    }
