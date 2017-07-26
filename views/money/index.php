@@ -111,7 +111,7 @@ $month = date('m');
 				+'<td style ="width:106px;" class = "tableIdClient">'+data['phone']+'</td>'
 				+'<td style ="width:80px;" class = "tableIdClient">'+data['city']+'</td>'
 				+'<td style ="width:115px;" class = "tableIdClient">'+data['status']+'</td>'
-				+'<td style ="width:33.83px;" class = "tableIdClient"><a target="_blank" href="https://new584549b112ca4.amocrm.ru/leads/detail/'+data['id']+'"><img src = "images/money_arr.jpg" style="max-width:100%;"/></a></td>'
+				+'<td style ="width:33.83px;" class = "tableIdClient"><a target="_blank" href="https://new584549b112ca4.amocrm.ru/leads/detail/'+data['id']+'"><img src = "../web/img/money_arr.png" style="max-width:100%;"/></a></td>'
 				
 				+'</tr>');
 			}
