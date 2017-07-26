@@ -63,20 +63,19 @@ $month = date('m');
 	</div>
 
 
+<div class = "idClient" style ="display:inline-block;margin-bottom:5px;width:550px; text-align:center; height:24px; background-color:#ffd37b;"><span>ID клиента</span></div>
 <div class = "no">
-	
-	<table id = "tableAll"style ="font-size:12px;width: 580px; border-collapse: separate;">
-	<div class = "idClient" style ="margin-bottom:5px;width:550px; text-align:center; height:24px; background-color:#ffd37b;"><span>ID клиента</span></div>
+	<table id = "tableAll"style ="background-color: #ffffff;display:inline-block;font-size:12px;width: 550px; border-collapse: separate;">
 		<tr>
-			<td class = "tableIdClient" style ="width:102px;">Ответственный</td>
-			<td class = "tableIdClient" style ="width:98px;">Имя Фамилия</td>
-			<td class = "tableIdClient" style ="width:106px;">Телефон</td>
-			<td class = "tableIdClient" style ="width:80px;">Город</td>
-			<td class = "tableIdClient" style ="width:115px;">Статус</td>
-			<td style ="font-size:14px;line-height: 1.42857143;height:50px;background-color: #fff8cc; float: left;margin-left:2.5px ;width:33.83px;">CRM</td>
+			<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px; width:102px;">Ответственный</td>
+			<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:98px;">Имя Фамилия</td>
+			<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:106px;">Телефон</td>
+			<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">Город</td>
+			<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:115px;">Статус</td>
+			<td style ="margin-top: 5px;font-size:14px;line-height: 1.42857143;height:50px;background-color: #fff8cc; float: left;margin-left:2.5px ;width:33.83px;">CRM</td>
 		</tr>	
 	</table>
-
+</div>
 
 
 
@@ -112,7 +111,7 @@ $month = date('m');
 				+'<td style ="width:106px;" class = "tableIdClient">'+data['phone']+'</td>'
 				+'<td style ="width:80px;" class = "tableIdClient">'+data['city']+'</td>'
 				+'<td style ="width:115px;" class = "tableIdClient">'+data['status']+'</td>'
-				+'<td style ="width:33.83px;" class = "tableIdClient"><a target="_blank" href="https://new584549b112ca4.amocrm.ru/leads/detail/'+data['id']+'"><img src = "/web/images/money_arr.jpg" style="max-width:100%;"/></a></td>'
+				+'<td style ="width:33.83px;" class = "tableIdClient"><a target="_blank" href="https://new584549b112ca4.amocrm.ru/leads/detail/'+data['id']+'"><img src = "images/money_arr.jpg" style="max-width:100%;"/></a></td>'
 				
 				+'</tr>');
 			}
