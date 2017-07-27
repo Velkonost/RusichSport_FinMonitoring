@@ -126,7 +126,7 @@ $month = date('m');
 </table>
 
 	
-		<table id = "tableAll" style ="background-color: #ffffff;display:inline-block;font-size:12px;width: 1550px; border-collapse: separate; margin-top:85px; height:75%; position: fixed; overflow: scroll">
+		<table id = "tableAll" style ="background-color: #ffffff;display:inline-block;font-size:12px;width: 1550px; border-collapse: separate; height:75%; position: fixed; overflow: scroll">
 		</table>
 	
 
