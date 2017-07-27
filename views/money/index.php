@@ -49,7 +49,7 @@ $month = date('m');
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<select onchange="call();" style = "width:300px;" class = "form-control date-period-selector'" id = "months">
+<select onchange="call();" style = "width:300px; margin:30px" class = "form-control date-period-selector'" id = "months">
 
 </select>
 
@@ -57,7 +57,7 @@ $month = date('m');
 	<?= Html::hiddenInput(\Yii::$app->getRequest()->csrfParam, \Yii::$app->getRequest()->getCsrfToken(), []) ?>
 	
 	  
-	<div class="money-filter-container">
+	<!-- <div class="money-filter-container">
 		<div class="">
 			<?php
 			// echo Html::dropDownList('date_period', $month.'-'.$year, $filter['months'], [
@@ -71,7 +71,7 @@ $month = date('m');
 				<i class="glyphicon glyphicon-refresh"></i>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 
 <div class = "idClient" style ="position: fixed; display:inline-block;margin-bottom:5px;width:550px; text-align:center; height:24px; background-color:#ffd37b;"><span>ID клиента</span></div>
