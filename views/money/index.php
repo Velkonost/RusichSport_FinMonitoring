@@ -85,10 +85,17 @@ $month = date('m');
 			<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:115px;">Статус</td>
 			<td style ="margin-top: 5px;font-size:14px;line-height: 1.42857143;height:50px;background-color: #fff8cc; float: left;margin-left:2.5px ;width:33.83px;">CRM</td>
 		</tr>	
+	<tr><td  class = "tableIdClient"  style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:102px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td>  
+		<td  class = "tableIdClient"  style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:98px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
+		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:106px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
+		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
+		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:115px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
+		<td></td>
+	</tr> 
 
 </table>
 <div class = "idClient" style ="position: fixed; display:inline-block;margin-bottom:5px;width:825px; text-align:center; height:24px; background-color:#ffd37b;"><span>Информация по сделке</span></div>
-<table style ="background-color: #ffffff;display:inline-block;font-size:12px;width: 1000px; border-collapse: separate; margin-top:-5px;margin-left:552px">
+<table style ="background-color: #ffffff;display:inline-block;font-size:12px;width: 1000px; border-collapse: separate; margin-top:-124px;margin-left:555px">
 	
 	<tr style="position: fixed; margin-top:25px;">
 			<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px; width:80px;">Дата создания</td>
@@ -101,7 +108,20 @@ $month = date('m');
 			<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px; width:80px;">Стоимость</td>
 			<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px; width:80px;">Стоимость СДЕК</td>
 			<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px; width:80px;">Че-то с процентами</td>
-		</tr>	
+	</tr>
+		<td class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
+		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
+		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
+		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
+		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
+		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
+		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
+		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
+		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
+		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
+		
+	</tr> 
+	
 
 </table>
 
@@ -225,15 +245,64 @@ $month = date('m');
 			for(var i = 0; i<json_texts.length; i++){
 				data = JSON.parse("{" + json_texts[i] + "}");
 				
+				var color = "";
 				var elem  = document.createElement('elem'+i);
 				elem.className = 'tableIdClient';
+				switch(data['status']){
+					case "12988851":
+						
+						data['status'] = "ДОСТАВЛЕН";
+						color = "49fac3";
+						break;
+					case "142":
+						data['status'] = "УСПЕШНО ЗАВЕРШЕНО";
+						color = "b4ff62"
+						break;
+					case "143":
+						data['status'] = "ЗАКРЫТО И НЕ РЕАЛИЗОВАНО";
+						color = "d4d8db";
+						break;
+					case "12998565":
+						data['status'] = "НЕ ВРУЧЕН";
+						color = "ff838b";
+						break;
+					case "12988845":
+						data['status'] = "ОТПРАВЛЕН";
+						color = "49fac3";
+						break;
+					case "15756250":
+						data['status'] = "ПРЕДЗАКАЗ";
+						color = "ffdf77";
+						break;
+					case "15756253":
+						data['status'] = "ОТЛОЖЕННЫЙ ЗАКАЗ";
+						color = "d2e9ff";
+						break;
+					case "12988842":
+						data['status'] = "ЗАЯВКА";
+						color = "8ec9ff";
+						break;
+					case "15756388":
+						data['status'] = "ГОТОВ К ОТПРАВКЕ";
+						color = "fcf700";
+						break;
+					case "12988848":
+						data['status'] = "ОЖИДАЕТ";
+						color = "ff7bff";
+						break;
+					case "15756256":
+						data['status'] = "ВОЗВРАТ НА СКЛАД";
+						color = "ffd9ff"
+						break;
+				}
+				
 				// elem.innerHTML = data[i]['lead_date_create'];
-				$('#tableAll').append('<tr>'
+				$('#tableAll').append('<tr style = "margin-top:-200px;">'
 				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px; width:102px;">'+data['main']+'</td>'
 				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:98px;">'+data['name']+'</td>'
 				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:106px;">'+data['phone']+'</td>'
 				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['city']+'</td>'
-				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:115px;">'+data['status']+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: '+color+'; float: left;margin-left:2.5px ;font-size: 12px;width:115px;">'+data['status']+'</td>'
 				+'<td style ="width:33.83px;" class = "tableIdClient"><a target="_blank" href="https://new584549b112ca4.amocrm.ru/leads/detail/'+data['id']+'"><img src = "../web/img/money_arr.png" style="max-width:100%;"/></a></td>'
 				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px; width:80px;">'+timeConverter(data['lead_date_create'])+'</td>'
 				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+timeConverter(data['lead_date_close'])+'</td>'
