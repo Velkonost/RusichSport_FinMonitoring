@@ -1,5 +1,5 @@
 <?php
-	if(!empty($_GET['date']) && !empty($_GET['date2'] && !empty($_GET['type']) && !empty($_GET['word'])){
+	if(!empty($_GET['date']) && !empty($_GET['date2']) && !empty($_GET['type']) && !empty($_GET['word'])){
 		$date = $_GET['date'];
 		$date2 = $_GET['date2'];
 		

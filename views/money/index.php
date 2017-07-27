@@ -456,7 +456,7 @@ $month = date('m');
         function timeConverter(UNIX_timestamp){
   var a = new Date(UNIX_timestamp * 1000);
   if (UNIX_timestamp == null || UNIX_timestamp == 0) return '';
-  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var months = ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек'];
   var year = a.getFullYear();
   var month = months[a.getMonth()];
   var date = a.getDate();
