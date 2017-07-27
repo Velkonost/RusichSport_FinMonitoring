@@ -33,6 +33,7 @@ $month = date('m');
 
 
 ?>
+
 <meta charset="<?= Yii::$app->charset ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <?= Html::csrfMetaTags() ?>
@@ -40,12 +41,14 @@ $month = date('m');
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<select id = "test">
-	<option onclick="call();" value="Июль">Июль</option>
+<select onchange="call();" id = "months">
+
 </select>
 
 <form id="money-search-form" action="<?= $_SERVER['REQUEST_URI'] ?>" method="get">
 	<?= Html::hiddenInput(\Yii::$app->getRequest()->csrfParam, \Yii::$app->getRequest()->getCsrfToken(), []) ?>
+	
+	  
 	<div class="money-filter-container">
 		<div class="fixed">
 			<?php
@@ -80,11 +83,92 @@ $month = date('m');
 
 
 <script type="text/javascript" language="javascript">
+	startCall();
+	
  	function call() {
+		var val1 = (document.getElementById('months').value);
+		var val2 = "";
+		var val3 = val1.slice(0, -5);
+		var date2 = ""
+		switch(val3){
+			case "Январь":
+				val2 = val1.slice(7, 11);
+				val3 = "01";
+				date2 = "31";
+				break;
+			case "Февраль":
+				val3 = "02";
+				val2 = val1.slice(8, 12);
+				if(Number(val2)%4 == 0){
+					date2 = "29";
+				}else{
+					date2 = "28";
+				}
+				break;
+			case "Март":
+				val3 = "03";
+				val2 = val1.slice(5, 9);
+				date = "31";
+				break;
+			case "Апрель":
+				val3 = "04";
+				val2 = val1.slice(7, 11);
+				date = "30";
+				break;
+			case "Май":
+				val3 = "05";
+				val2 = val1.slice(4, 8);
+				date = "31";
+				break;
+			case "Июнь":
+				val3 = "06";
+				val2 = val1.slice(5, 9);
+				date = "30";
+				break;
+			case "Июль":
+				val3 = "07";
+				val2 = val1.slice(5, 9);
+				date = "31";
+				break;
+			case "Август":
+				val3 = "08";
+				val2 = val1.slice(7, 11);
+				date = "31";
+				break;
+			case "Сентябрь":
+				val3 = "09";
+				val2 = val1.slice(9, 13);
+				date = "30";
+				break;
+			case "Октябрь":
+				val3 = "10";
+				val2 = val1.slice(8, 12);
+				date = "31";
+				break;
+			case "Ноябрь":
+				val2 = val1.slice(7, 11);
+				val3 = "11";
+				date = "30";
+				break;
+			case "Декабрь":
+				val2 = val1.slice(8, 12);
+				val3 = "12";
+				date = "31";
+				break;
+		}
+		var fulldate = "01-"+val3+"-"+val2;
+		var fulldate2 = date+"-"+val3+"-"+val2;
+		fulldate = fulldate.split("-");
+		fulldate2 = fulldate2.split("-");
+		
+		fulldate =  new Date(fulldate[1]+"/"+fulldate[0]+"/"+fulldate[2]).getTime()/1000;
+		fulldate2 =   new Date(fulldate2[1]+"/"+fulldate2[0]+"/"+fulldate2[2]).getTime()/1000;
+		
         $.ajax({
           type: 'GET',
-          url: '/money/getpost?date=1498867200&date2=1501545600',
+          url: '/money/getpost?date='+fulldate+'&date2='+fulldate2,
           success: function(data) {
+			
             //alert($.trim(data));
 			//data = JSON.stringify(data);
 			data = $.trim(data);
@@ -99,6 +183,9 @@ $month = date('m');
 			// console.log();
 			// alert(data[0]['lead_date_create']);
 			var table = document.getElementById('tableAll');
+			while(table.rows[1]) table.deleteRow(1);
+			
+			
 			for(var i = 0; i<json_texts.length; i++){
 				data = JSON.parse("{" + json_texts[i] + "}");
 				
@@ -115,6 +202,120 @@ $month = date('m');
 				
 				+'</tr>');
 			}
+			
+			
+          },
+          error:  function(xhr, str){
+			alert('Возникла ошибка: ' + xhr.responseCode);
+          }
+        });
+ 
+    }
+	
+	function startCall() {
+        $.ajax({
+          type: 'GET',
+          url: '/money/getpost',
+          success: function(data) {
+            //alert($.trim(data));
+			//data = JSON.stringify(data);
+			data = $.trim(data);
+			data = data.slice(1, -146);
+			data = $.trim(data);
+			data = data.substring(1);
+			data = data.substring(0, data.length - 1);
+			
+			var json_texts = data.split('},{');
+			
+			var month = [];
+			
+			var selectMonths = document.getElementById('months');
+			//alert(data.length);
+			//console.log(json_texts);
+			for(var i = 0; i<json_texts.length; i++){
+				//console.log(json_texts[i]);
+				data = JSON.parse("{" + json_texts[i] + "}");
+				switch(data['month']){
+					case "01":
+						var opt = document.createElement('option');
+						opt.innerHTML = 'Январь '+data['year'];
+						opt.value = 'Январь '+data['year'];
+						$('#months').append(opt);
+						break;
+					case "02":
+						var opt = document.createElement('option');
+						opt.innerHTML = 'Февраль '+data['year'];
+						opt.value = 'Февраль '+data['year'];
+						$('#months').append(opt);
+						break;
+					case "03":
+						var opt = document.createElement('option');
+						opt.innerHTML = 'Март '+data['year'];
+						opt.value = 'Март '+data['year'];
+						$('#months').append(opt);
+						break;
+					case "04":
+						var opt = document.createElement('option');
+						opt.innerHTML = 'Апрель '+data['year'];;
+						opt.value  = 'Апрель '+data['year'];
+						$('#months').append(opt);
+						break;
+					case "05":
+						var opt = document.createElement('option');
+						opt.innerHTML = 'Май '+data['year'];
+						opt.value = 'Май '+data['year'];
+						$('#months').append(opt);
+						break;
+					case "06":
+						var opt = document.createElement('option');
+						opt.innerHTML =  'Июнь '+data['year'];
+						opt.value =  'Июнь '+data['year'];
+						$('#months').append(opt);
+						break;
+					case "07":
+						var opt = document.createElement('option');
+						opt.innerHTML = 'Июль '+data['year'];
+						opt.value =  'Июль '+data['year'];
+						$('#months').append(opt);
+						break;
+					case "08":
+						var opt = document.createElement('option');
+						opt.innerHTML ='Август '+data['year'];
+						opt.value = 'Август '+data['year'];
+						$('#months').append(opt);
+						break;
+					case "09":
+						var opt = document.createElement('option');
+						opt.innerHTML = 'Сентябрь '+data['year'];
+						opt.value = 'Сентябрь '+data['year'];
+						$('#months').append(opt);
+						break;
+					case "10":
+						var opt = document.createElement('option');
+						opt.innerHTML = 'Октябрь '+data['year'];
+						opt.value ='Октябрь '+data['year'];
+						$('#months').append(opt);
+						break;
+					case "11":
+						var opt = document.createElement('option');
+						opt.innerHTML ='Ноябрь '+data['year'];
+						opt.value ='Ноябрь '+data['year'];
+						$('#months').append(opt);
+						break;
+					case "12":
+						var opt = document.createElement('option');
+						opt.innerHTML ='Декабрь '+data['year'];
+						opt.value = 'Декабрь '+data['year'];
+						$('#months').append(opt);
+						break;
+				}
+			}
+			
+			call();
+			// console.log(json_texts.length);
+			
+			// alert(data[0]['lead_date_create']);
+			
 			
 			
           },
