@@ -41,7 +41,7 @@ $month = date('m');
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<select onchange="call();" id = "months">
+<select onchange="call();" style = "width:300px;" class = "form-control date-period-selector'" id = "months">
 
 </select>
 
@@ -50,7 +50,7 @@ $month = date('m');
 	
 	  
 	<div class="money-filter-container">
-		<div class="fixed">
+		<div class="">
 			<?php
 			// echo Html::dropDownList('date_period', $month.'-'.$year, $filter['months'], [
 			// 	'class'=>'form-control date-period-selector',
@@ -66,10 +66,10 @@ $month = date('m');
 	</div>
 
 
-<div class = "idClient" style ="display:inline-block;margin-bottom:5px;width:550px; text-align:center; height:24px; background-color:#ffd37b;"><span>ID клиента</span></div>
-<div class = "no">
-	<table id = "tableAll"style ="background-color: #ffffff;display:inline-block;font-size:12px;width: 550px; border-collapse: separate;">
-		<tr>
+<div class = "idClient" style ="position: fixed; display:inline-block;margin-bottom:5px;width:550px; text-align:center; height:24px; background-color:#ffd37b;"><span>ID клиента</span></div>
+<table style ="background-color: #ffffff;display:inline-block;font-size:12px;width: 550px; border-collapse: separate;">
+	
+	<tr style="position: fixed; margin-top:25px;">
 			<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px; width:102px;">Ответственный</td>
 			<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:98px;">Имя Фамилия</td>
 			<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:106px;">Телефон</td>
@@ -77,6 +77,11 @@ $month = date('m');
 			<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:115px;">Статус</td>
 			<td style ="margin-top: 5px;font-size:14px;line-height: 1.42857143;height:50px;background-color: #fff8cc; float: left;margin-left:2.5px ;width:33.83px;">CRM</td>
 		</tr>	
+
+</table>
+<div class = "no">
+	<table id = "tableAll" style ="background-color: #ffffff;display:inline-block;font-size:12px;width: 550px; border-collapse: separate; margin-top:85px;overflow: scroll; height:75%">
+		
 	</table>
 </div>
 
@@ -193,17 +198,15 @@ $month = date('m');
 				elem.className = 'tableIdClient';
 				// elem.innerHTML = data[i]['lead_date_create'];
 				$('#tableAll').append('<tr>'
-				+'<td style ="width:102px;" class = "tableIdClient">'+data['main']+'</td>'
-				+'<td style ="width:98px;" class = "tableIdClient">'+data['name']+'</td>'
-				+'<td style ="width:106px;" class = "tableIdClient">'+data['phone']+'</td>'
-				+'<td style ="width:80px;" class = "tableIdClient">'+data['city']+'</td>'
-				+'<td style ="width:115px;" class = "tableIdClient">'+data['status']+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px; width:102px;">'+data['main']+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:98px;">'+data['name']+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:106px;">'+data['phone']+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['city']+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:115px;">'+data['status']+'</td>'
 				+'<td style ="width:33.83px;" class = "tableIdClient"><a target="_blank" href="https://new584549b112ca4.amocrm.ru/leads/detail/'+data['id']+'"><img src = "../web/img/money_arr.png" style="max-width:100%;"/></a></td>'
 				
 				+'</tr>');
 			}
-			
-			
           },
           error:  function(xhr, str){
 			alert('Возникла ошибка: ' + xhr.responseCode);
@@ -325,6 +328,7 @@ $month = date('m');
         });
  
     }
+
 </script>
 
 <style>
