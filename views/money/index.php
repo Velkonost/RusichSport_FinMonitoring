@@ -147,16 +147,17 @@ $month = date('m');
 <style>
 	.btn-dateSuccess{
 		color: black;
-		font-size: 12px;
-		width: 100px;
-		height: 50px;
+		font-size: 14px;
+		width: 80px;
+		height: 40px;
+		background-color:#00FF7F;
 		text-align:center;
 	}
 	.btn-dateCancel{
 		color: black;
-		font-size: 12px;
-		width: 100px;
-		height: 50px;
+		font-size: 14px;
+		width: 80px;
+		height: 40px;
 		background-color: #ADD8E6;
 		text-align:center;
 	}
@@ -170,7 +171,7 @@ $month = date('m');
 		"alwaysShowCalendars": true,
 		"startDate": "07/22/2017",
 		"endDate": "07/28/2017",
-		"opens": "left",
+		"opens": "right",
 		"drops": "down",
 		"applyClass":"btn-dateSuccess",
 		"cancelClass":"btn-dateCancel"
@@ -182,7 +183,7 @@ $month = date('m');
 		"alwaysShowCalendars": true,
 		"startDate": "07/22/2017",
 		"endDate": "07/28/2017",
-		"opens": "left",
+		"opens": "right",
 		"drops": "down",
 		"applyClass":"btn-dateSuccess",
 		"cancelClass":"btn-dateCancel"
