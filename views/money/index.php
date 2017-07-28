@@ -669,7 +669,7 @@ $month = date('m');
           type: 'GET',
           url: '/money/find?date='+fulldate+'&date2='+fulldate2 + '&critical_acc=' + critical_acc + '&contact_name=' + contact_name + '&phone=' + phone + '&city=' + city + '&status=' + status,
           success: function(data) {
-			console.log(data);
+			
             
 			data = $.trim(data);
 			data=data.slice(1, -146);
@@ -682,7 +682,6 @@ $month = date('m');
 			var table = document.getElementById('tableAll');
 			while(table.rows[0]) table.deleteRow(0);
 
-			
 			
 			for(var i = 0; i<json_texts.length; i++){
 				data = JSON.parse("{" + json_texts[i] + "}");
@@ -737,7 +736,7 @@ $month = date('m');
 						color = "ffd9ff";
 						break;
 				}
-				
+				console.log(data);
 				// elem.innerHTML = data[i]['lead_date_create'];
 				$('#tableAll').append('<tr style = "margin-top:-200px;">'
 				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px; width:102px;">'+data['main']+'</td>'
