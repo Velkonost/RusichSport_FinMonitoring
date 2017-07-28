@@ -22,7 +22,7 @@
 				 $data[$g]['main'] = $get[$i]['critical_acc'];
 				 $data[$g]['name'] = $get2['name'];
 				 $data[$g]['phone'] = $get2['phone'];
-				 $data[$g]['city'] = $get2['city'];
+				 $data[$g]['city'] = $get[$i]['city'];
 				 $data[$g]['lead_date_create'] = $get[$i]['lead_date_create'];
 				 $data[$g]['lead_date_close'] = $get[$i]['lead_date_close'];
 				 $data[$g]['lead_date_send'] = $get[$i]['lead_date_send'];
