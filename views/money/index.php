@@ -100,7 +100,7 @@ $month = date('m');
 		<td  class = "tableIdClient"  style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:98px;"><input  style = "margin-top:10px;" type = "text" id="contact_name" name="contact_name" class = "form-control text-input"></td> 
 		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:106px;"><input  style = "margin-top:10px;" type = "text" id="phone" name="phone" class = "form-control text-input"></td> 
 		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" id="city" name="city" class = "form-control text-input"></td> 
-		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:115px;"><input  style = "margin-top:10px;" type = "text" id="status" name="status" class = "form-control text-input"></td> 
+		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:115px;"><select  style = "margin-top:10px;" type = "text" id="status" name="status" class = "form-control date-period-selector"></td> 
 		<td></td>
 	</tr> 
 
@@ -165,6 +165,74 @@ $month = date('m');
 
 
 <script type="text/javascript" language="javascript">
+		
+	var opt = document.createElement('option');
+	opt.innerHTML = 'ВОЗВРАТ НА СКЛАД';
+	opt.backgroundColor = "ffd9ff";
+	opt.value = '15756256';
+	$('#status').append(opt);
+	
+	var opt = document.createElement('option');
+	opt.innerHTML = 'ОЖИДАЕТ';
+	opt.value = '12988848';
+	opt.backgroundColor = "ff7bff";
+	$('#status').append(opt);
+	
+	var opt = document.createElement('option');
+	opt.innerHTML = 'ГОТОВ К ОТПРАВКЕ';
+	opt.value = '15756388';
+	opt.color = "fcf700";
+	$('#status').append(opt);
+	
+	var opt = document.createElement('option');
+	opt.innerHTML = 'ЗАЯВКА';
+	opt.backgroundColor = "8ec9ff";
+	opt.value = '12988842';
+	$('#status').append(opt);
+	
+	var opt = document.createElement('option');
+	opt.innerHTML = 'ОТЛОЖЕННЫЙ ЗАКАЗ';
+	opt.value = '15756253';
+	opt.backgroundColor = "d2e9ff";
+	$('#status').append(opt);
+	
+	var opt = document.createElement('option');
+	opt.innerHTML = 'ДОСТАВЛЕН';
+	opt.backgroundColor = "49fac3";
+	opt.value = '12988851';
+	$('#status').append(opt);
+	
+	var opt = document.createElement('option');
+	opt.innerHTML = 'УСПЕШНО ЗАВЕРШЕНО';
+	opt.value = '142';
+	opt.backgroundColor = "b4ff62"
+	$('#status').append(opt);
+	
+	var opt = document.createElement('option');
+	opt.innerHTML = 'ЗАКРЫТО И НЕ РЕАЛИЗОВАНО';
+	opt.value = '143';
+	opt.backgroundColor = "d4d8db";
+	$('#status').append(opt);
+	
+	var opt = document.createElement('option');
+	opt.innerHTML = 'НЕ ВРУЧЕН';
+	opt.backgroundColor = "ff838b";
+	opt.value = '12998565';
+	$('#status').append(opt);
+	
+	var opt = document.createElement('option');
+	opt.innerHTML = 'ОТПРАВЛЕН';
+	opt.value = '12988845';
+	opt.backgroundColor = "49fac3";
+	$('#status').append(opt);
+						
+	var opt = document.createElement('option');
+	opt.innerHTML = 'ПРЕДЗАКАЗ';
+	opt.value = '15756250';
+	opt.backgroundColor = "ffdf77";
+	$('#status').append(opt);
+						
+						
 	
 	$('#date_create').daterangepicker({
 		"showCustomRangeLabel": false,
