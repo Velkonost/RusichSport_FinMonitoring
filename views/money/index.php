@@ -671,108 +671,108 @@ $month = date('m');
           success: function(data) {
 			console.log(data);
             
-			// data = $.trim(data);
-			// data=data.slice(1, -146);
-			// data = $.trim(data);
-			// data = data.substring(1);
-			// data = data.substring(0, data.length - 1);
+			data = $.trim(data);
+			data=data.slice(1, -146);
+			data = $.trim(data);
+			data = data.substring(1);
+			data = data.substring(0, data.length - 1);
 
-			// var json_texts = data.split('},{');
+			var json_texts = data.split('},{');
 
-			// var table = document.getElementById('tableAll');
-			// while(table.rows[0]) table.deleteRow(0);
+			var table = document.getElementById('tableAll');
+			while(table.rows[0]) table.deleteRow(0);
 
 			
 			
-			// for(var i = 0; i<json_texts.length; i++){
-			// 	data = JSON.parse("{" + json_texts[i] + "}");
+			for(var i = 0; i<json_texts.length; i++){
+				data = JSON.parse("{" + json_texts[i] + "}");
 				
-			// 	var color = "";
-			// 	var elem  = document.createElement('elem'+i);
-			// 	elem.className = 'tableIdClient';
-			// 	switch(data['status']){
-			// 		case "12988851":
+				var color = "";
+				var elem  = document.createElement('elem'+i);
+				elem.className = 'tableIdClient';
+				switch(data['status']){
+					case "12988851":
 						
-			// 			data['status'] = "ДОСТАВЛЕН";
-			// 			color = "49fac3";
-			// 			break;
-			// 		case "142":
-			// 			data['status'] = "УСПЕШНО ЗАВЕРШЕНО";
-			// 			color = "b4ff62";
-			// 			break;
-			// 		case "143":
-			// 			data['status'] = "ЗАКРЫТО И НЕ РЕАЛИЗОВАНО";
-			// 			color = "d4d8db";
-			// 			break;
-			// 		case "12998565":
-			// 			data['status'] = "НЕ ВРУЧЕН";
-			// 			color = "ff838b";
-			// 			break;
-			// 		case "12988845":
-			// 			data['status'] = "ОТПРАВЛЕН";
-			// 			color = "49fac3";
-			// 			break;
-			// 		case "15756250":
-			// 			data['status'] = "ПРЕДЗАКАЗ";
-			// 			color = "ffdf77";
-			// 			break;
-			// 		case "15756253":
-			// 			data['status'] = "ОТЛОЖЕННЫЙ ЗАКАЗ";
-			// 			color = "d2e9ff";
-			// 			break;
-			// 		case "12988842":
-			// 			data['status'] = "ЗАЯВКА";
-			// 			color = "8ec9ff";
-			// 			break;
-			// 		case "15756388":
-			// 			data['status'] = "ГОТОВ К ОТПРАВКЕ";
-			// 			color = "fcf700";
-			// 			break;
-			// 		case "12988848":
-			// 			data['status'] = "ОЖИДАЕТ";
-			// 			color = "ff7bff";
-			// 			break;
-			// 		case "15756256":
-			// 			data['status'] = "ВОЗВРАТ НА СКЛАД";
-			// 			color = "ffd9ff";
-			// 			break;
-			// 	}
+						data['status'] = "ДОСТАВЛЕН";
+						color = "49fac3";
+						break;
+					case "142":
+						data['status'] = "УСПЕШНО ЗАВЕРШЕНО";
+						color = "b4ff62";
+						break;
+					case "143":
+						data['status'] = "ЗАКРЫТО И НЕ РЕАЛИЗОВАНО";
+						color = "d4d8db";
+						break;
+					case "12998565":
+						data['status'] = "НЕ ВРУЧЕН";
+						color = "ff838b";
+						break;
+					case "12988845":
+						data['status'] = "ОТПРАВЛЕН";
+						color = "49fac3";
+						break;
+					case "15756250":
+						data['status'] = "ПРЕДЗАКАЗ";
+						color = "ffdf77";
+						break;
+					case "15756253":
+						data['status'] = "ОТЛОЖЕННЫЙ ЗАКАЗ";
+						color = "d2e9ff";
+						break;
+					case "12988842":
+						data['status'] = "ЗАЯВКА";
+						color = "8ec9ff";
+						break;
+					case "15756388":
+						data['status'] = "ГОТОВ К ОТПРАВКЕ";
+						color = "fcf700";
+						break;
+					case "12988848":
+						data['status'] = "ОЖИДАЕТ";
+						color = "ff7bff";
+						break;
+					case "15756256":
+						data['status'] = "ВОЗВРАТ НА СКЛАД";
+						color = "ffd9ff";
+						break;
+				}
 				
-			// 	// elem.innerHTML = data[i]['lead_date_create'];
-			// 	$('#tableAll').append('<tr style = "margin-top:-200px;">'
-			// 	+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px; width:102px;">'+data['main']+'</td>'
-			// 	+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:98px;">'+data['name']+'</td>'
-			// 	+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:106px;">'+data['phone']+'</td>'
-			// 	+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['city']+'</td>'
-			// 	+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: '+color+'; float: left;margin-left:2.5px ;font-size: 12px;width:115px;">'+data['status']+'</td>'
-			// 	+'<td style ="width:33.83px;" class = "tableIdClient"><a target="_blank" href="https://new584549b112ca4.amocrm.ru/leads/detail/'+data['id']+'"><img src = "../web/img/money_arr.png" style="max-width:100%;"/></a></td>'
-			// 	+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px; width:80px;">'+timeConverter(data['lead_date_create'])+'</td>'
-			// 	+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+timeConverter(data['lead_date_close'])+'</td>'
-			// 	+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+timeConverter(data['lead_date_send'])+'</td>'
-			// 	+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+timeConverter(data['lead_date_delivered'])+'</td>'
-			// 	+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+timeConverter(data['lead_date_success_delivered'])+'</td>'
-			// 	+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+timeConverter(data['lead_date_reset'])+'</td>'
-			// 	+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+timeConverter(data['lead_date_reset_thing'])+'</td>'
-			// 	+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_summa']+'</td>'
-			// 	+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['sdek_summa']+'</td>'
-			// 	+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+'%'+'</td>'
+				// elem.innerHTML = data[i]['lead_date_create'];
+				$('#tableAll').append('<tr style = "margin-top:-200px;">'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px; width:102px;">'+data['main']+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:98px;">'+data['name']+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:106px;">'+data['phone']+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['city']+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: '+color+'; float: left;margin-left:2.5px ;font-size: 12px;width:115px;">'+data['status']+'</td>'
+				+'<td style ="width:33.83px;" class = "tableIdClient"><a target="_blank" href="https://new584549b112ca4.amocrm.ru/leads/detail/'+data['id']+'"><img src = "../web/img/money_arr.png" style="max-width:100%;"/></a></td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px; width:80px;">'+timeConverter(data['lead_date_create'])+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+timeConverter(data['lead_date_close'])+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+timeConverter(data['lead_date_send'])+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+timeConverter(data['lead_date_delivered'])+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+timeConverter(data['lead_date_success_delivered'])+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+timeConverter(data['lead_date_reset'])+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+timeConverter(data['lead_date_reset_thing'])+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_summa']+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['sdek_summa']+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+'%'+'</td>'
 
 				
-			// 	+'</tr>');
+				+'</tr>');
 
-			// 	// $('#tableLeads').append('<tr>'
-			// 	// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px; width:80px;">'+data['lead_date_create']+'</td>'
-			// 	// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_date_close']+'</td>'
-			// 	// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_date_send']+'</td>'
-			// 	// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_date_delivered']+'</td>'
-			// 	// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_date_success_delivered']+'</td>'
-			// 	// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_date_reset']+'</td>'
-			// 	// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_date_reset_thing']+'</td>'
-			// 	// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_summa']+'</td>'
-			// 	// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['sdek_summa']+'</td>'
-			// 	// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+'%'+'</td>'
-			// 	// +'</tr>');
-			// }
+				// $('#tableLeads').append('<tr>'
+				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px; width:80px;">'+data['lead_date_create']+'</td>'
+				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_date_close']+'</td>'
+				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_date_send']+'</td>'
+				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_date_delivered']+'</td>'
+				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_date_success_delivered']+'</td>'
+				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_date_reset']+'</td>'
+				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_date_reset_thing']+'</td>'
+				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_summa']+'</td>'
+				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['sdek_summa']+'</td>'
+				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+'%'+'</td>'
+				// +'</tr>');
+			}
           },
           error:  function(xhr, str){
 			alert('Возникла ошибка: ' + xhr.responseCode);
