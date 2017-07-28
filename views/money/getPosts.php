@@ -21,7 +21,6 @@
 			 $data[$i]['name'] = $get2['name'];
 			 $data[$i]['phone'] = $get2['phone'];
 			 $data[$i]['city'] = $get2['city'];
-
 			 $data[$i]['lead_date_create'] = $get[$i]['lead_date_create'];
 			 $data[$i]['lead_date_close'] = $get[$i]['lead_date_close'];
 			 $data[$i]['lead_date_send'] = $get[$i]['lead_date_send'];
@@ -31,7 +30,6 @@
 			 $data[$i]['lead_date_reset_thing'] = $get[$i]['lead_date_reset_thing'];
 			 $data[$i]['lead_summa'] = $get[$i]['lead_summa'];
 			 $data[$i]['sdek_summa'] = $get[$i]['sdek_summa'];
-
 		}
 	}
 	echo json_encode($data);
