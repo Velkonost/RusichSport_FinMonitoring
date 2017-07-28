@@ -19,8 +19,10 @@
 		// 	ORDER BY lead_date_create DESC")
 		// ->queryAll();
 		$data = [];
+		$resultData = [];
 		//echo 1;
 		$g = 0;
+		$gg = 0;
 
 		/*
 
@@ -37,11 +39,42 @@ LIMIT 0 , 30
 			// if($get[$i]['lead_date_create']>=$date && $get[$i]['lead_date_create']<=$date2){
 				 // $get2 = Yii::$app->db->createCommand("SELECT * FROM contacts WHERE contact_id = '$id'")
 					// ->queryOne();
-				 
-				 $data[$g]['id'] = $get[$i]['contact_id'];
-				 $data[$g]['name'] = $get[$i]['name'];
-				 $data[$g]['phone'] = $get[$i]['phone'];
-				 $data[$g]['city'] = $get[$i]['city'];
+				$data[$g]['id'] = $get[$i]['contact_id'];
+				$data[$g]['name'] = $get[$i]['name'];
+				$data[$g]['phone'] = $get[$i]['phone'];
+				$data[$g]['city'] = $get[$i]['city'];
+
+				$get2 = Yii::$app->db->createCommand("SELECT * FROM leads 
+					WHERE `critical_acc` LIKE '%$_GET[critical_acc]%'
+					AND `contact_id`='$id'
+					ORDER BY lead_date_create DESC
+					")->queryAll();
+
+				for($j = 0; $j<count($get2); $j++){
+
+					if($get2[$j]['lead_date_create']>=$date && $get2[$j]['lead_date_create']<=$date2){
+						// $id = $get[$i]['contact_id'];
+						
+						$resultData[$gg]['id'] = $get2[$j]['lead_id'];
+						$resultData[$gg]['status'] = $get2[$j]['lead_status'];
+						$resultData[$gg]['main'] = $get2[$j]['critical_acc'];
+						$resultData[$gg]['name'] = $data[$g]['name'];
+						$resultData[$gg]['phone'] = $data[$g]['phone'];
+						$resultData[$gg]['city'] = $get2[$j]['city'];
+						$resultData[$gg]['lead_date_create'] = $get2[$j]['lead_date_create'];
+						$resultData[$gg]['lead_date_close'] = $get2[$j]['lead_date_close'];
+						$resultData[$gg]['lead_date_send'] = $get2[$j]['lead_date_send'];
+						$resultData[$gg]['lead_date_delivered'] = $get2[$j]['lead_date_delivered'];
+						$resultData[$gg]['lead_date_success_delivered'] = $get2[$j]['lead_date_success_delivered'];
+						$resultData[$gg]['lead_date_reset'] = $get2[$j]['lead_date_reset'];
+						$resultData[$gg]['lead_date_reset_thing'] = $get2[$j]['lead_date_reset_thing'];
+						$resultData[$gg]['lead_summa'] = $get2[$j]['lead_summa'];
+						$resultData[$gg]['sdek_summa'] = $get2[$j]['sdek_summa'];
+
+						$gg ++;
+					}
+				}
+
 
 				 // $data[$g]['status'] = $get[$i]['lead_status'];
 				 // $data[$g]['main'] = $get[$i]['critical_acc'];
@@ -60,6 +93,6 @@ LIMIT 0 , 30
 				 $g++;
 			// }
 		}
-		echo json_encode($data);
+		echo json_encode($resultData);
 	}
 ?>
