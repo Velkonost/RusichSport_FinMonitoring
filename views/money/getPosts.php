@@ -18,9 +18,9 @@
 			 $data[$i]['id'] = $get[$i]['lead_id'];
 			 $data[$i]['status'] = $get[$i]['lead_status'];
 			 $data[$i]['main'] = $get[$i]['critical_acc'];
+			 $data[$i]['city'] = $get[$i]['city'];
 			 $data[$i]['name'] = $get2['name'];
 			 $data[$i]['phone'] = $get2['phone'];
-			 $data[$i]['city'] = $get['city'];
 
 			 $data[$i]['lead_date_create'] = $get[$i]['lead_date_create'];
 			 $data[$i]['lead_date_close'] = $get[$i]['lead_date_close'];
