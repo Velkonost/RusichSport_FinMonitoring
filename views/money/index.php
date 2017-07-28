@@ -49,7 +49,7 @@ $month = date('m');
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<select onchange="call();" style = "width:300px;" class = "form-control date-period-selector'" id = "months">
+<select onchange="call();" style = "width:300px; margin:30px" class = "form-control date-period-selector'" id = "months">
 
 </select>
 
@@ -57,7 +57,7 @@ $month = date('m');
 	<?= Html::hiddenInput(\Yii::$app->getRequest()->csrfParam, \Yii::$app->getRequest()->getCsrfToken(), []) ?>
 	
 	  
-	<div class="money-filter-container">
+	<!-- <div class="money-filter-container">
 		<div class="">
 			<?php
 			// echo Html::dropDownList('date_period', $month.'-'.$year, $filter['months'], [
@@ -71,7 +71,7 @@ $month = date('m');
 				<i class="glyphicon glyphicon-refresh"></i>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 
 <div class = "idClient" style ="position: fixed; display:inline-block;margin-bottom:5px;width:550px; text-align:center; height:24px; background-color:#ffd37b;"><span>ID клиента</span></div>
@@ -85,7 +85,7 @@ $month = date('m');
 			<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:115px;">Статус</td>
 			<td style ="margin-top: 5px;font-size:14px;line-height: 1.42857143;height:50px;background-color: #fff8cc; float: left;margin-left:2.5px ;width:33.83px;">CRM</td>
 		</tr>	
-	<tr><td  class = "tableIdClient"  style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:102px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td>  
+	<tr><td  class = "tableIdClient"  style ="background-color:#fff8cc;line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:102px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td>  
 		<td  class = "tableIdClient"  style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:98px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
 		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:106px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
 		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
@@ -109,7 +109,7 @@ $month = date('m');
 			<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px; width:80px;">Стоимость СДЕК</td>
 			<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px; width:80px;">Че-то с процентами</td>
 	</tr>
-		<td class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
+		<td class = "tableIdClient" style ="background-color:#fff8cc;line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
 		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
 		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
 		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
@@ -126,7 +126,7 @@ $month = date('m');
 </table>
 
 	
-		<table id = "tableAll" style ="background-color: #ffffff;display:inline-block;font-size:12px;width: 1550px; border-collapse: separate; margin-top:85px; height:75%; position: fixed; overflow: scroll">
+		<table id = "tableAll" style ="background-color: #ffffff;display:inline-block;font-size:12px;width: 1550px; border-collapse: separate; height:75%; position: fixed; overflow: scroll">
 		</table>
 	
 
@@ -456,7 +456,7 @@ $month = date('m');
         function timeConverter(UNIX_timestamp){
   var a = new Date(UNIX_timestamp * 1000);
   if (UNIX_timestamp == null || UNIX_timestamp == 0) return '';
-  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var months = ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек'];
   var year = a.getFullYear();
   var month = months[a.getMonth()];
   var date = a.getDate();
