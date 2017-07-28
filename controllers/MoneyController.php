@@ -209,6 +209,7 @@ class MoneyController extends Controller {
                 $leadsPrice = [];
 
                 $clientsIds = [];
+                $clientsCity = [];
                 $amountLeads = count($data->{'response'}->{'leads'});
 
                 for ($i = 0; $i < $amountLeads; $i ++) {
@@ -219,6 +220,7 @@ class MoneyController extends Controller {
                     array_push($leadsDateClose, $data->{'response'}->{'leads'}[$i]->{'date_close'});
                     array_push($leadsStatusId, $data->{'response'}->{'leads'}[$i]->{'status_id'});
                     array_push($leadsSdekSumma, unparseSdekSumma($data->{'response'}->{'leads'}[$i]->{'custom_fields'}));
+                    array_push($clientsCity, unparseSdekCity($data->{'response'}->{'leads'}[$i]->{'custom_fields'}));
                     array_push($leadsPrice, unparsePrice($data->{'response'}->{'leads'}[$i]->{'custom_fields'}));
 
                 }
@@ -233,6 +235,8 @@ class MoneyController extends Controller {
 
                     $post->lead_summa = $leadsPrice[$i];
                     $post->sdek_summa = $leadsSdekSumma[$i];
+
+                    $post->city = $clientsCity[$i];
 
                     $post->lead_date_close = $leadsDateClose[$i];
                     $post->lead_date_create = $leadsDateCreate[$i];
@@ -397,6 +401,7 @@ class MoneyController extends Controller {
                 $leadsPrice = [];
 
                 $clientsIds = [];
+                $clientsCity = [];
                 $amountLeads = count($data->{'response'}->{'leads'});
 
                 for ($i = 0; $i < $amountLeads; $i ++) {
@@ -407,6 +412,7 @@ class MoneyController extends Controller {
                     array_push($leadsDateClose, $data->{'response'}->{'leads'}[$i]->{'date_close'});
                     array_push($leadsStatusId, $data->{'response'}->{'leads'}[$i]->{'status_id'});
                     array_push($leadsSdekSumma, unparseSdekSumma($data->{'response'}->{'leads'}[$i]->{'custom_fields'}));
+                    array_push($clientsCity, unparseSdekCity($data->{'response'}->{'leads'}[$i]->{'custom_fields'}));
                     array_push($leadsPrice, unparsePrice($data->{'response'}->{'leads'}[$i]->{'custom_fields'}));
 
                 }
@@ -421,6 +427,8 @@ class MoneyController extends Controller {
 
                     $post->lead_summa = $leadsPrice[$i];
                     $post->sdek_summa = $leadsSdekSumma[$i];
+
+                    $post->city = $clientsCity[$i];
 
                     $post->lead_date_close = $leadsDateClose[$i];
 
@@ -613,6 +621,7 @@ class MoneyController extends Controller {
                 $leadsPrice = [];
 
                 $clientsIds = [];
+                $clientsCity = [];
                 $amountLeads = count($data->{'response'}->{'leads'});
 
                 for ($i = 0; $i < $amountLeads; $i ++) {
@@ -623,6 +632,7 @@ class MoneyController extends Controller {
                     array_push($leadsDateClose, $data->{'response'}->{'leads'}[$i]->{'date_close'});
                     array_push($leadsStatusId, $data->{'response'}->{'leads'}[$i]->{'status_id'});
                     array_push($leadsSdekSumma, unparseSdekSumma($data->{'response'}->{'leads'}[$i]->{'custom_fields'}));
+                    array_push($clientsCity, unparseSdekCity($data->{'response'}->{'leads'}[$i]->{'custom_fields'}));
                     array_push($leadsPrice, unparsePrice($data->{'response'}->{'leads'}[$i]->{'custom_fields'}));
 
                 }
@@ -639,6 +649,8 @@ class MoneyController extends Controller {
                     $post->lead_summa = $leadsPrice[$i];
                     $post->sdek_summa = $leadsSdekSumma[$i];
 
+                    $post->city = $clientsCity[$i];
+
                     $post->lead_date_close = $leadsDateClose[$i];
                     $post->lead_date_create = $leadsDateCreate[$i];
 
@@ -649,7 +661,7 @@ class MoneyController extends Controller {
                 sleep(2);
             }
 
-            $link2 = 'https://'.$subdomain.'.amocrm.ru/private/api/v2/json/leads/list?limit_rows=281&limit_offset='.$offset;
+            $link2 = 'https://'.$subdomain.'.amocrm.ru/private/api/v2/json/leads/list?limit_rows=381&limit_offset='.$offset;
 
             $curl=curl_init(); #Сохраняем дескриптор сеанса cURL
             #Устанавливаем необходимые опции для сеанса cURL
@@ -676,6 +688,7 @@ class MoneyController extends Controller {
             $leadsPrice = [];
 
             $clientsIds = [];
+            $clientsCity = [];
             $amountLeads = count($data->{'response'}->{'leads'});
 
             for ($i = 0; $i < $amountLeads; $i ++) {
@@ -686,6 +699,7 @@ class MoneyController extends Controller {
                 array_push($leadsDateClose, $data->{'response'}->{'leads'}[$i]->{'date_close'});
                 array_push($leadsStatusId, $data->{'response'}->{'leads'}[$i]->{'status_id'});
                 array_push($leadsSdekSumma, unparseSdekSumma($data->{'response'}->{'leads'}[$i]->{'custom_fields'}));
+                array_push($clientsCity, unparseSdekCity($data->{'response'}->{'leads'}[$i]->{'custom_fields'}));
                 array_push($leadsPrice, unparsePrice($data->{'response'}->{'leads'}[$i]->{'custom_fields'}));
 
             }
@@ -700,6 +714,8 @@ class MoneyController extends Controller {
 
                 $post->lead_summa = $leadsPrice[$i];
                 $post->sdek_summa = $leadsSdekSumma[$i];
+
+                $post->city = $clientsCity[$i];
 
                 $post->lead_date_close = $leadsDateClose[$i];
                 $post->lead_date_create = $leadsDateCreate[$i];
@@ -770,6 +786,18 @@ function unparseSdekSumma($data){
     
     for($i = 0; $i<count($data); $i++){
         if(strcmp($data[$i]->{'name'}, "Стоимость доставки")==0){
+            $array = $data[$i]->{'values'}[0]->{'value'};
+            break;
+        }
+    }
+    return $array;
+}
+
+function unparseSdekCity($data){    
+    $array = " ";
+    
+    for($i = 0; $i<count($data); $i++){
+        if(strcmp($data[$i]->{'name'}, "Город получателя")==0){
             $array = $data[$i]->{'values'}[0]->{'value'};
             break;
         }

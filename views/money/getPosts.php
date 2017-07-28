@@ -20,7 +20,7 @@
 			 $data[$i]['main'] = $get[$i]['critical_acc'];
 			 $data[$i]['name'] = $get2['name'];
 			 $data[$i]['phone'] = $get2['phone'];
-			 $data[$i]['city'] = $get2['city'];
+			 $data[$i]['city'] = $get['city'];
 
 			 $data[$i]['lead_date_create'] = $get[$i]['lead_date_create'];
 			 $data[$i]['lead_date_close'] = $get[$i]['lead_date_close'];
