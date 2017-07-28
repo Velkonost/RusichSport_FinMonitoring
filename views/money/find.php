@@ -47,6 +47,7 @@ LIMIT 0 , 30
 				$get2 = Yii::$app->db->createCommand("SELECT * FROM leads 
 					WHERE `critical_acc` LIKE '%$_GET[critical_acc]%'
 					AND `contact_id`='$id'
+					AND `status`='$_GET[status]'
 					ORDER BY lead_date_create DESC
 					")->queryAll();
 

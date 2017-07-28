@@ -366,7 +366,6 @@ $month = date('m');
 				elem.className = 'tableIdClient';
 				switch(data['status']){
 					case "12988851":
-						
 						data['status'] = "ДОСТАВЛЕН";
 						color = "49fac3";
 						break;
@@ -664,7 +663,14 @@ $month = date('m');
 		var contact_name = document.getElementById('contact_name').value;
 		var phone = document.getElementById('phone').value;
 		var city = document.getElementById('city').value;
-		var status = document.getElementById('status').value;
+		// var status = document.getElementById('status').value;
+		var date_create_interval = document.getElementById('date_create').value;
+		var date_create_first = date_create_interval.substring(1, 10);
+		date_create_first = date_create_first.split("/");
+		date_create_first = new Date(date_create_first[0] + "/" + date_create_first[1] + "/" + date_create_first[2]).getTime()/1000;
+		// date_create_first = new Date(date_create_first).getTime()/1000;
+		console.log(date_create_first);
+
 
         $.ajax({
           type: 'GET',
@@ -778,8 +784,6 @@ $month = date('m');
           }
         });
     }
-
-
 </script>
 
 <style>
