@@ -59,10 +59,6 @@ $month = date('m');
 <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
 
-
-
-
-
 <select onchange="call();" style = "width:300px; margin:30px" class = "form-control date-period-selector'" id = "months">
 
 </select>
@@ -148,17 +144,111 @@ $month = date('m');
 		<!-- <table id = "tableLeads" style ="background-color: #ffffff;display:inline-block;font-size:12px;width: 1000px; border-collapse: separate; margin-top:85px; height:75%; position: fixed; margin-left:552px">
 		</table> -->
 
+<style>
+	.btn-dateSuccess{
+		color: black;
+		font-size: 12px;
+		width: 100px;
+		height: 50px;
+		text-align:center;
+	}
+	.btn-dateCancel{
+		color: black;
+		font-size: 12px;
+		width: 100px;
+		height: 50px;
+		background-color: #ADD8E6;
+		text-align:center;
+	}
+</style>
 
 
 <script type="text/javascript" language="javascript">
 	
-	$('input[id="date_create"]').daterangepicker();
-	$('input[id="date_close"]').daterangepicker();
-	$('input[id="date_send"]').daterangepicker();
-	$('input[id="date_dost"]').daterangepicker();
-	$('input[id="dateSuc_dost"]').daterangepicker();
-	$('input[id="date_return"]').daterangepicker();
-	$('input[id="date_return_thing"]').daterangepicker();
+	$('#date_create').daterangepicker({
+		"showCustomRangeLabel": false,
+		"alwaysShowCalendars": true,
+		"startDate": "07/22/2017",
+		"endDate": "07/28/2017",
+		"opens": "left",
+		"drops": "down",
+		"applyClass":"btn-dateSuccess",
+		"cancelClass":"btn-dateCancel"
+	}, function(start, end, label) {
+	  console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
+	});
+	$('#date_close').daterangepicker({
+		"showCustomRangeLabel": false,
+		"alwaysShowCalendars": true,
+		"startDate": "07/22/2017",
+		"endDate": "07/28/2017",
+		"opens": "left",
+		"drops": "down",
+		"applyClass":"btn-dateSuccess",
+		"cancelClass":"btn-dateCancel"
+	}, function(start, end, label) {
+	  console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
+	});
+	$('#date_send').daterangepicker({
+		"showCustomRangeLabel": false,
+		"alwaysShowCalendars": true,
+		"startDate": "07/22/2017",
+		"endDate": "07/28/2017",
+		"opens": "left",
+		"drops": "down",
+		"applyClass":"btn-dateSuccess",
+		"cancelClass":"btn-dateCancel"
+	}, function(start, end, label) {
+	  console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
+	});
+	$('#date_dost').daterangepicker({
+		"showCustomRangeLabel": false,
+		"alwaysShowCalendars": true,
+		"startDate": "07/22/2017",
+		"endDate": "07/28/2017",
+		"opens": "left",
+		"drops": "down",
+		"applyClass":"btn-dateSuccess",
+		"cancelClass":"btn-dateCancel"
+	}, function(start, end, label) {
+	  console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
+	});
+	$('#dateSuc_dost').daterangepicker({
+		"showCustomRangeLabel": false,
+		"alwaysShowCalendars": true,
+		"startDate": "07/22/2017",
+		"endDate": "07/28/2017",
+		"opens": "left",
+		"drops": "down",
+		"applyClass":"btn-dateSuccess",
+		"cancelClass":"btn-dateCancel"
+	}, function(start, end, label) {
+	  console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
+	});
+	$('#date_return').daterangepicker({
+		"showCustomRangeLabel": false,
+		"alwaysShowCalendars": true,
+		"startDate": "07/22/2017",
+		"endDate": "07/28/2017",
+		"opens": "left",
+		"drops": "down",
+		"applyClass":"btn-dateSuccess",
+		"cancelClass":"btn-dateCancel"
+	}, function(start, end, label) {
+	  console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
+	});
+	$('#date_return_thing').daterangepicker({
+		"showCustomRangeLabel": false,
+		"alwaysShowCalendars": true,
+		"startDate": "07/22/2017",
+		"endDate": "07/28/2017",
+		"opens": "left",
+		"drops": "down",
+		"applyClass":"btn-dateSuccess",
+		"cancelClass":"btn-dateCancel"
+	}, function(start, end, label) {
+	  console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
+	});
 	
 	
 	startCall();
