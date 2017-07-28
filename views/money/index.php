@@ -214,9 +214,9 @@ $month = date('m');
 		fulldate = fulldate.split("-");
 		fulldate2 = fulldate2.split("-");
 		
-		fulldate =  new Date(fulldate[1]+"/"+fulldate[0]+"/"+fulldate[2]).getTime()/1000;
-		fulldate2 =   new Date(fulldate2[1]+"/"+fulldate2[0]+"/"+fulldate2[2]).getTime()/1000;
-		
+		fulldate = new Date(fulldate[1]+"/"+fulldate[0]+"/"+fulldate[2]).getTime()/1000;
+		fulldate2 = new Date(fulldate2[1]+"/"+fulldate2[0]+"/"+fulldate2[2]).getTime()/1000;
+
         $.ajax({
           type: 'GET',
           url: '/money/getpost?date='+fulldate+'&date2='+fulldate2,
@@ -256,7 +256,7 @@ $month = date('m');
 						break;
 					case "142":
 						data['status'] = "УСПЕШНО ЗАВЕРШЕНО";
-						color = "b4ff62"
+						color = "b4ff62";
 						break;
 					case "143":
 						data['status'] = "ЗАКРЫТО И НЕ РЕАЛИЗОВАНО";
@@ -292,7 +292,7 @@ $month = date('m');
 						break;
 					case "15756256":
 						data['status'] = "ВОЗВРАТ НА СКЛАД";
-						color = "ffd9ff"
+						color = "ffd9ff";
 						break;
 				}
 				
@@ -454,18 +454,18 @@ $month = date('m');
     }
 
         function timeConverter(UNIX_timestamp){
-  var a = new Date(UNIX_timestamp * 1000);
-  if (UNIX_timestamp == null || UNIX_timestamp == 0) return '';
-  var months = ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек'];
-  var year = a.getFullYear();
-  var month = months[a.getMonth()];
-  var date = a.getDate();
-  var hour = a.getHours();
-  var min = a.getMinutes();
-  var sec = a.getSeconds();
-  var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
-  return time;
-}
+		  var a = new Date(UNIX_timestamp * 1000);
+		  if (UNIX_timestamp == null || UNIX_timestamp == 0) return '';
+		  var months = ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек'];
+		  var year = a.getFullYear();
+		  var month = months[a.getMonth()];
+		  var date = a.getDate();
+		  var hour = a.getHours();
+		  var min = a.getMinutes();
+		  var sec = a.getSeconds();
+		  var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+		  return time;
+		}
 
 </script>
 
