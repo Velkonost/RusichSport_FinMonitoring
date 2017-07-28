@@ -9,6 +9,8 @@
  * @var $model \app\models\Money (Inside loops)
  */
 
+ 
+ 
 use app\models\Money;
 use yii\helpers\Url;
 use yii\helpers\Html;
@@ -47,7 +49,19 @@ $month = date('m');
 }
 </style>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
+ 
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+
+
+
+
 
 <select onchange="call();" style = "width:300px; margin:30px" class = "form-control date-period-selector'" id = "months">
 
@@ -109,13 +123,13 @@ $month = date('m');
 			<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px; width:80px;">Стоимость СДЕК</td>
 			<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px; width:80px;">Че-то с процентами</td>
 	</tr>
-		<td class = "tableIdClient" style ="background-color:#fff8cc;line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
-		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
-		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
-		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
-		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
-		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
-		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
+		<td class = "tableIdClient" style ="background-color:#fff8cc;line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  id = "date_create" style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
+		<td  class = "tableIdClient"  style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input id = "date_close" style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
+		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input id = "date_send"  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
+		<td  class = "tableIdClient"  style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input id = "date_dost" style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
+		<td  class = "tableIdClient"  style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input id = "dateSuc_dost" style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
+		<td  class = "tableIdClient"  style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input id = "date_return" style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
+		<td  class = "tableIdClient"  style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input id = "date_return_thing" style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
 		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
 		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
 		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
@@ -136,6 +150,16 @@ $month = date('m');
 
 
 <script type="text/javascript" language="javascript">
+	
+	$('input[id="date_create"]').daterangepicker();
+	$('input[id="date_close"]').daterangepicker();
+	$('input[id="date_send"]').daterangepicker();
+	$('input[id="date_dost"]').daterangepicker();
+	$('input[id="dateSuc_dost"]').daterangepicker();
+	$('input[id="date_return"]').daterangepicker();
+	$('input[id="date_return_thing"]').daterangepicker();
+	
+	
 	startCall();
 	
  	function call() {
@@ -214,9 +238,9 @@ $month = date('m');
 		fulldate = fulldate.split("-");
 		fulldate2 = fulldate2.split("-");
 		
-		fulldate = new Date(fulldate[1]+"/"+fulldate[0]+"/"+fulldate[2]).getTime()/1000;
-		fulldate2 = new Date(fulldate2[1]+"/"+fulldate2[0]+"/"+fulldate2[2]).getTime()/1000;
-
+		fulldate =  new Date(fulldate[1]+"/"+fulldate[0]+"/"+fulldate[2]).getTime()/1000;
+		fulldate2 =   new Date(fulldate2[1]+"/"+fulldate2[0]+"/"+fulldate2[2]).getTime()/1000;
+		
         $.ajax({
           type: 'GET',
           url: '/money/getpost?date='+fulldate+'&date2='+fulldate2,
@@ -256,7 +280,7 @@ $month = date('m');
 						break;
 					case "142":
 						data['status'] = "УСПЕШНО ЗАВЕРШЕНО";
-						color = "b4ff62";
+						color = "b4ff62"
 						break;
 					case "143":
 						data['status'] = "ЗАКРЫТО И НЕ РЕАЛИЗОВАНО";
@@ -292,7 +316,7 @@ $month = date('m');
 						break;
 					case "15756256":
 						data['status'] = "ВОЗВРАТ НА СКЛАД";
-						color = "ffd9ff";
+						color = "ffd9ff"
 						break;
 				}
 				
@@ -454,18 +478,18 @@ $month = date('m');
     }
 
         function timeConverter(UNIX_timestamp){
-		  var a = new Date(UNIX_timestamp * 1000);
-		  if (UNIX_timestamp == null || UNIX_timestamp == 0) return '';
-		  var months = ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек'];
-		  var year = a.getFullYear();
-		  var month = months[a.getMonth()];
-		  var date = a.getDate();
-		  var hour = a.getHours();
-		  var min = a.getMinutes();
-		  var sec = a.getSeconds();
-		  var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
-		  return time;
-		}
+  var a = new Date(UNIX_timestamp * 1000);
+  if (UNIX_timestamp == null || UNIX_timestamp == 0) return '';
+  var months = ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек'];
+  var year = a.getFullYear();
+  var month = months[a.getMonth()];
+  var date = a.getDate();
+  var hour = a.getHours();
+  var min = a.getMinutes();
+  var sec = a.getSeconds();
+  var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+  return time;
+}
 
 </script>
 
