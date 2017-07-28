@@ -57,6 +57,11 @@ class MoneyController extends Controller {
         []);
     }
     
+    public function actionFind(){
+        return $this->render('find',
+        []);
+    }
+    
     public function actionWebhook() {
         try {
             $listenerContact = new \AmoCRM\Webhooks\Listener();

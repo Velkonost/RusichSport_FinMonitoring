@@ -99,11 +99,12 @@ $month = date('m');
 			<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:115px;">Статус</td>
 			<td style ="margin-top: 5px;font-size:14px;line-height: 1.42857143;height:50px;background-color: #fff8cc; float: left;margin-left:2.5px ;width:33.83px;">CRM</td>
 		</tr>	
-	<tr><td  class = "tableIdClient"  style ="background-color:#fff8cc;line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:102px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td>  
-		<td  class = "tableIdClient"  style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:98px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
-		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:106px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
-		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
-		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:115px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
+	<tr><td  class = "tableIdClient"  style ="background-color:#fff8cc;line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:102px;">
+		<input  style = "margin-top:10px;" id="critical_acc" name="critical_acc" type = "text" class = "form-control text-input" onchange="callFilter()"></td>  
+		<td  class = "tableIdClient"  style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:98px;"><input  style = "margin-top:10px;" type = "text" id="contact_name" name="contact_name" class = "form-control text-input"></td> 
+		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:106px;"><input  style = "margin-top:10px;" type = "text" id="phone" name="phone" class = "form-control text-input"></td> 
+		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" id="city" name="city" class = "form-control text-input"></td> 
+		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:115px;"><input  style = "margin-top:10px;" type = "text" id="status" name="status" class = "form-control text-input"></td> 
 		<td></td>
 	</tr> 
 
@@ -360,7 +361,6 @@ $month = date('m');
 			alert('Возникла ошибка: ' + xhr.responseCode);
           }
         });
- 
     }
 	
 	function startCall() {
@@ -474,9 +474,9 @@ $month = date('m');
 			alert('Возникла ошибка: ' + xhr.responseCode);
           }
         });
- 
     }
 
+<<<<<<< HEAD
         function timeConverter(UNIX_timestamp){
   var a = new Date(UNIX_timestamp * 1000);
   if (UNIX_timestamp == null || UNIX_timestamp == 0) return '';
@@ -490,6 +490,227 @@ $month = date('m');
   var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
   return time;
 }
+=======
+    function timeConverter(UNIX_timestamp){
+	  var a = new Date(UNIX_timestamp * 1000);
+	  if (UNIX_timestamp == null || UNIX_timestamp == 0) return '';
+	  var months = ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек'];
+	  var year = a.getFullYear();
+	  var month = months[a.getMonth()];
+	  var date = a.getDate();
+	  var hour = a.getHours();
+	  var min = a.getMinutes();
+	  var sec = a.getSeconds();
+	  var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+	  return time;
+	}
+
+	function callFilter() {
+		var val1 = (document.getElementById('months').value);
+		var val2 = "";
+		var val3 = val1.slice(0, -5);
+		var date2 = ""
+		switch(val3){
+			case "Январь":
+				val2 = val1.slice(7, 11);
+				val3 = "01";
+				date2 = "31";
+				break;
+			case "Февраль":
+				val3 = "02";
+				val2 = val1.slice(8, 12);
+				if(Number(val2)%4 == 0){
+					date2 = "29";
+				}else{
+					date2 = "28";
+				}
+				break;
+			case "Март":
+				val3 = "03";
+				val2 = val1.slice(5, 9);
+				date = "31";
+				break;
+			case "Апрель":
+				val3 = "04";
+				val2 = val1.slice(7, 11);
+				date = "30";
+				break;
+			case "Май":
+				val3 = "05";
+				val2 = val1.slice(4, 8);
+				date = "31";
+				break;
+			case "Июнь":
+				val3 = "06";
+				val2 = val1.slice(5, 9);
+				date = "30";
+				break;
+			case "Июль":
+				val3 = "07";
+				val2 = val1.slice(5, 9);
+				date = "31";
+				break;
+			case "Август":
+				val3 = "08";
+				val2 = val1.slice(7, 11);
+				date = "31";
+				break;
+			case "Сентябрь":
+				val3 = "09";
+				val2 = val1.slice(9, 13);
+				date = "30";
+				break;
+			case "Октябрь":
+				val3 = "10";
+				val2 = val1.slice(8, 12);
+				date = "31";
+				break;
+			case "Ноябрь":
+				val2 = val1.slice(7, 11);
+				val3 = "11";
+				date = "30";
+				break;
+			case "Декабрь":
+				val2 = val1.slice(8, 12);
+				val3 = "12";
+				date = "31";
+				break;
+		}
+		var fulldate = "01-"+val3+"-"+val2;
+		var fulldate2 = date+"-"+val3+"-"+val2;
+		fulldate = fulldate.split("-");
+		fulldate2 = fulldate2.split("-");
+		
+		fulldate = new Date(fulldate[1]+"/"+fulldate[0]+"/"+fulldate[2]).getTime()/1000;
+		fulldate2 = new Date(fulldate2[1]+"/"+fulldate2[0]+"/"+fulldate2[2]).getTime()/1000;
+
+		var critical_acc = document.getElementById('critical_acc').value;
+		var contact_name = document.getElementById('contact_name').value;
+		var phone = document.getElementById('phone').value;
+		var city = document.getElementById('city').value;
+		var status = document.getElementById('status').value;
+
+        $.ajax({
+          type: 'GET',
+          url: '/money/find?date='+fulldate+'&date2='+fulldate2 + '&critical_acc=' + critical_acc + '&contact_name=' + contact_name + '&phone=' + phone + '&city=' + city + '&status=' + status,
+          success: function(data) {
+			
+            //alert($.trim(data));
+			//data = JSON.stringify(data);
+			data = $.trim(data);
+			data=data.slice(1, -146);
+			data = $.trim(data);
+			data = data.substring(1);
+			data = data.substring(0, data.length - 1);
+
+			var json_texts = data.split('},{');
+
+			// console.log(json_texts.length);
+			// console.log();
+			// alert(data[0]['lead_date_create']);
+			var table = document.getElementById('tableAll');
+			while(table.rows[0]) table.deleteRow(0);
+
+			// var table = document.getElementById('tableLeads');
+			// while(table.rows[0]) table.deleteRow(0);
+			
+			
+			for(var i = 0; i<json_texts.length; i++){
+				data = JSON.parse("{" + json_texts[i] + "}");
+				
+				var color = "";
+				var elem  = document.createElement('elem'+i);
+				elem.className = 'tableIdClient';
+				switch(data['status']){
+					case "12988851":
+						
+						data['status'] = "ДОСТАВЛЕН";
+						color = "49fac3";
+						break;
+					case "142":
+						data['status'] = "УСПЕШНО ЗАВЕРШЕНО";
+						color = "b4ff62";
+						break;
+					case "143":
+						data['status'] = "ЗАКРЫТО И НЕ РЕАЛИЗОВАНО";
+						color = "d4d8db";
+						break;
+					case "12998565":
+						data['status'] = "НЕ ВРУЧЕН";
+						color = "ff838b";
+						break;
+					case "12988845":
+						data['status'] = "ОТПРАВЛЕН";
+						color = "49fac3";
+						break;
+					case "15756250":
+						data['status'] = "ПРЕДЗАКАЗ";
+						color = "ffdf77";
+						break;
+					case "15756253":
+						data['status'] = "ОТЛОЖЕННЫЙ ЗАКАЗ";
+						color = "d2e9ff";
+						break;
+					case "12988842":
+						data['status'] = "ЗАЯВКА";
+						color = "8ec9ff";
+						break;
+					case "15756388":
+						data['status'] = "ГОТОВ К ОТПРАВКЕ";
+						color = "fcf700";
+						break;
+					case "12988848":
+						data['status'] = "ОЖИДАЕТ";
+						color = "ff7bff";
+						break;
+					case "15756256":
+						data['status'] = "ВОЗВРАТ НА СКЛАД";
+						color = "ffd9ff";
+						break;
+				}
+				
+				// elem.innerHTML = data[i]['lead_date_create'];
+				$('#tableAll').append('<tr style = "margin-top:-200px;">'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px; width:102px;">'+data['main']+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:98px;">'+data['name']+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:106px;">'+data['phone']+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['city']+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: '+color+'; float: left;margin-left:2.5px ;font-size: 12px;width:115px;">'+data['status']+'</td>'
+				+'<td style ="width:33.83px;" class = "tableIdClient"><a target="_blank" href="https://new584549b112ca4.amocrm.ru/leads/detail/'+data['id']+'"><img src = "../web/img/money_arr.png" style="max-width:100%;"/></a></td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px; width:80px;">'+timeConverter(data['lead_date_create'])+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+timeConverter(data['lead_date_close'])+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+timeConverter(data['lead_date_send'])+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+timeConverter(data['lead_date_delivered'])+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+timeConverter(data['lead_date_success_delivered'])+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+timeConverter(data['lead_date_reset'])+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+timeConverter(data['lead_date_reset_thing'])+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_summa']+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['sdek_summa']+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+'%'+'</td>'
+
+				
+				+'</tr>');
+
+				// $('#tableLeads').append('<tr>'
+				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px; width:80px;">'+data['lead_date_create']+'</td>'
+				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_date_close']+'</td>'
+				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_date_send']+'</td>'
+				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_date_delivered']+'</td>'
+				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_date_success_delivered']+'</td>'
+				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_date_reset']+'</td>'
+				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_date_reset_thing']+'</td>'
+				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_summa']+'</td>'
+				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['sdek_summa']+'</td>'
+				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+'%'+'</td>'
+				// +'</tr>');
+			}
+          },
+          error:  function(xhr, str){
+			alert('Возникла ошибка: ' + xhr.responseCode);
+          }
+        });
+    }
+>>>>>>> b023a4bbe450efda4382513c6229fe8578b71e61
 
 </script>
 
