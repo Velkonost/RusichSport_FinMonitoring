@@ -47,12 +47,13 @@ LIMIT 0 , 30
 				$get2 = Yii::$app->db->createCommand("SELECT * FROM leads 
 					WHERE `critical_acc` LIKE '%$_GET[critical_acc]%'
 					AND `contact_id`='$id'
+					AND `status`='$_GET[status]'
 					ORDER BY lead_date_create DESC
 					")->queryAll();
 
 				for($j = 0; $j<count($get2); $j++){
 
-					if($get2[$j]['lead_date_create']>=$date && $get2[$j]['lead_date_create']<=$date2){
+					// if($get2[$j]['lead_date_create']>=$date && $get2[$j]['lead_date_create']<=$date2){
 						// $id = $get[$i]['contact_id'];
 						
 						$resultData[$gg]['id'] = $get2[$j]['lead_id'];
@@ -72,7 +73,7 @@ LIMIT 0 , 30
 						$resultData[$gg]['sdek_summa'] = $get2[$j]['sdek_summa'];
 
 						$gg ++;
-					}
+					// }
 				}
 
 
