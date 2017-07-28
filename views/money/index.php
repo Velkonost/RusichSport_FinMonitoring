@@ -568,17 +568,17 @@ $month = date('m');
     }
 
     function timeConverter(UNIX_timestamp){
-	  var a = new Date(UNIX_timestamp * 1000);
-	  if (UNIX_timestamp == null || UNIX_timestamp == 0) return '';
-	  var months = ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек'];
-	  var year = a.getFullYear();
-	  var month = months[a.getMonth()];
-	  var date = a.getDate();
-	  var hour = a.getHours();
-	  var min = a.getMinutes();
-	  var sec = a.getSeconds();
-	  var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
-	  return time;
+		var a = new Date(UNIX_timestamp * 1000);
+	  	if (UNIX_timestamp == null || UNIX_timestamp == 0) return '';
+	  	var months = ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек'];
+	  	var year = a.getFullYear();
+	  	var month = months[a.getMonth()];
+	  	var date = a.getDate();
+	  	var hour = a.getHours();
+	  	var min = a.getMinutes();
+	  	var sec = a.getSeconds();
+	  	var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+	  	return time;
 	}
 
 	function callFilter() {
@@ -737,7 +737,6 @@ $month = date('m');
 						color = "ffd9ff";
 						break;
 				}
-				console.log(data);
 				// elem.innerHTML = data[i]['lead_date_create'];
 				$('#tableAll').append('<tr style = "margin-top:-200px;">'
 				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px; width:102px;">'+data['main']+'</td>'
