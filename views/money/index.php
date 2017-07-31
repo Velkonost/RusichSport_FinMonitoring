@@ -26,14 +26,6 @@ $this->title = 'Финансовый мониторинг';
 
 $year = date('Y');
 $month = date('m');
-/*if (!empty($_GET['date_period'])) {
-	$period = explode('-', $_GET['date_period']);
-	$month = substr('0' . $period[0], -2, 2);
-	$year = $period[1];
-}*/
-
-
-
 ?>
 
 <meta charset="<?= Yii::$app->charset ?>">
@@ -64,24 +56,6 @@ $month = date('m');
 </select>
 
 <form id="money-search-form" action="<?= $_SERVER['REQUEST_URI'] ?>" method="get">
-	<?= Html::hiddenInput(\Yii::$app->getRequest()->csrfParam, \Yii::$app->getRequest()->getCsrfToken(), []) ?>
-	
-	  
-	<!-- <div class="money-filter-container">
-		<div class="">
-			<?php
-			// echo Html::dropDownList('date_period', $month.'-'.$year, $filter['months'], [
-			// 	'class'=>'form-control date-period-selector',
-			// 	'data-url' => str_replace('?' . Yii::$app->getRequest()->getQueryString(), '', Yii::$app->getRequest()->getUrl())
-			// ]);
-			?><span class="filter-values"><?php echo $c;
-				?></span><?php
-			?>
-			<div class="btn btn-default update_leads_btn">
-				<i class="glyphicon glyphicon-refresh"></i>
-			</div>
-		</div>
-	</div> -->
 
 
 <div class = "idClient" style ="position: fixed; display:inline-block;margin-bottom:5px;width:550px; text-align:center; height:24px; background-color:#ffd37b;"><span>ID клиента</span></div>
