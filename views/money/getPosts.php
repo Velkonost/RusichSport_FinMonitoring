@@ -10,6 +10,7 @@
 		$data = [];
 		//echo 1;
 		$g = 0;
+
 		//echo $date;
 		for($i = 0; $i<count($get); $i++){
 			$id = $get[$i]['contact_id'];
@@ -32,18 +33,23 @@
 				 $data[$g]['lead_date_reset_thing'] = $get[$i]['lead_date_reset_thing'];
 				 $data[$g]['lead_summa'] = $get[$i]['lead_summa'];
 				 $data[$g]['sdek_summa'] = $get[$i]['sdek_summa'];
+
 				 $g++;
 			}
 		}
+
 		echo json_encode($data);
+
 	}else{
 		$get = Yii::$app->db->createCommand("SELECT * FROM leads ORDER BY lead_date_create DESC")
 		->queryAll();
 		$data = [];
 		//echo 1;
 		$g= 0;
-		//echo $date;
-		//echo count($get);
+		
+		$price_itog = 0;
+		$sdek_itog = 0;
+
 		for($i = 0; $i<count($get); $i++){
 					
 			$flag = false;
