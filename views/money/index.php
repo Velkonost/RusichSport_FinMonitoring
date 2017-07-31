@@ -97,10 +97,10 @@ $month = date('m');
 		</tr>	
 	<tr><td  class = "tableIdClient"  style ="background-color:#fff8cc;line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:102px;">
 		<input  style = "margin-top:10px;" id="critical_acc" name="critical_acc" type = "text" class = "form-control text-input" onchange="callFilter()"></td>  
-		<td  class = "tableIdClient"  style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:98px;"><input  style = "margin-top:10px;" type = "text" id="contact_name" name="contact_name" class = "form-control text-input"></td> 
-		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:106px;"><input  style = "margin-top:10px;" type = "text" id="phone" name="phone" class = "form-control text-input"></td> 
-		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" id="city" name="city" class = "form-control text-input"></td> 
-		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:115px;"><select  style = "margin-top:10px;" type = "text" id="status" name="status" class = "form-control date-period-selector"></td> 
+		<td  class = "tableIdClient"  style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:98px;"><input onchange="callFilter()" style = "margin-top:10px;" type = "text" id="contact_name" name="contact_name" class = "form-control text-input"></td> 
+		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:106px;"><input onchange="callFilter()" style = "margin-top:10px;" type = "text" id="phone" name="phone" class = "form-control text-input"></td> 
+		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input onchange="callFilter()" style = "margin-top:10px;" type = "text" id="city" name="city" class = "form-control text-input"></td> 
+		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:115px;"><select onchange="callFilter()" style = "margin-top:10px;" type = "text" id="status" name="status" class = "form-control date-period-selector"></td> 
 		<td></td>
 	</tr> 
 
@@ -127,23 +127,16 @@ $month = date('m');
 		<td  class = "tableIdClient"  style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input id = "dateSuc_dost" style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
 		<td  class = "tableIdClient"  style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input id = "date_return" style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
 		<td  class = "tableIdClient"  style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input id = "date_return_thing" style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
-		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
-		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
-		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
+		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input onchange="callFilter()" id="price" style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
+		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input onchange="callFilter()" id="sdek_summa" style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
+		<td  class = "tableIdClient" style ="line-height: 1.42857143;margin-top:70px; float: left;margin-left:2.5px ;font-size: 12px; width:80px;"><input disabled="disabled"  style = "margin-top:10px;" type = "text" class = "form-control text-input"></td> 
 		
 	</tr> 
 	
 
 </table>
-
-	
-		<table id = "tableAll" style ="background-color: #ffffff;display:inline-block;font-size:12px;width: 1550px; border-collapse: separate; height:75%; position: fixed; overflow: scroll">
+		<table id = "tableAll" style ="background-color: #ffffff;display:inline-block;font-size:12px;width: 1550px; border-collapse: separate; height:60%; position: fixed; overflow: scroll">
 		</table>
-	
-
-		<!-- <table id = "tableLeads" style ="background-color: #ffffff;display:inline-block;font-size:12px;width: 1000px; border-collapse: separate; margin-top:85px; height:75%; position: fixed; margin-left:552px">
-		</table> -->
-
 <style>
 	.btn-dateSuccess{
 		color: black;
@@ -166,6 +159,12 @@ $month = date('m');
 
 <script type="text/javascript" language="javascript">
 		
+	var opt = document.createElement('option');
+	opt.innerHTML = 'СТАТУС';
+	opt.backgroundColor = "";
+	opt.value = '';
+	$('#status').append(opt);
+
 	var opt = document.createElement('option');
 	opt.innerHTML = 'ВОЗВРАТ НА СКЛАД';
 	opt.backgroundColor = "ffd9ff";
@@ -235,10 +234,12 @@ $month = date('m');
 						
 	
 	$('#date_create').daterangepicker({
+		autoUpdateInput: false,
+		locale: {
+          cancelLabel: 'Clear'
+      	},
 		"showCustomRangeLabel": false,
 		"alwaysShowCalendars": true,
-		"startDate": "07/22/2017",
-		"endDate": "07/28/2017",
 		"opens": "right",
 		"drops": "down",
 		"applyClass":"btn-dateSuccess",
@@ -246,11 +247,24 @@ $month = date('m');
 	}, function(start, end, label) {
 	  console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
 	});
+
+	$('#date_create').on('apply.daterangepicker', function(ev, picker) {
+        $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+        callFilter();
+  	});
+
+
+  	$('#date_create').on('cancel.daterangepicker', function(ev, picker) {
+    	$(this).val('');
+  	});
+
 	$('#date_close').daterangepicker({
+		autoUpdateInput: false,
+		locale: {
+          cancelLabel: 'Clear'
+      	},
 		"showCustomRangeLabel": false,
 		"alwaysShowCalendars": true,
-		"startDate": "07/22/2017",
-		"endDate": "07/28/2017",
 		"opens": "right",
 		"drops": "down",
 		"applyClass":"btn-dateSuccess",
@@ -258,11 +272,23 @@ $month = date('m');
 	}, function(start, end, label) {
 	  console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
 	});
+
+	$('#date_close').on('apply.daterangepicker', function(ev, picker) {
+        $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+        callFilter();
+  	});
+
+  	$('#date_close').on('cancel.daterangepicker', function(ev, picker) {
+    	$(this).val('');
+  	});
+
 	$('#date_send').daterangepicker({
+		autoUpdateInput: false,
+		locale: {
+          cancelLabel: 'Clear'
+      	},
 		"showCustomRangeLabel": false,
 		"alwaysShowCalendars": true,
-		"startDate": "07/22/2017",
-		"endDate": "07/28/2017",
 		"opens": "left",
 		"drops": "down",
 		"applyClass":"btn-dateSuccess",
@@ -270,11 +296,23 @@ $month = date('m');
 	}, function(start, end, label) {
 	  console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
 	});
+
+	$('#date_send').on('apply.daterangepicker', function(ev, picker) {
+        $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+        callFilter();
+  	});
+
+  	$('#date_send').on('cancel.daterangepicker', function(ev, picker) {
+    	$(this).val('');
+  	});
+
 	$('#date_dost').daterangepicker({
+		autoUpdateInput: false,
+		locale: {
+          cancelLabel: 'Clear'
+      	},
 		"showCustomRangeLabel": false,
 		"alwaysShowCalendars": true,
-		"startDate": "07/22/2017",
-		"endDate": "07/28/2017",
 		"opens": "left",
 		"drops": "down",
 		"applyClass":"btn-dateSuccess",
@@ -282,11 +320,23 @@ $month = date('m');
 	}, function(start, end, label) {
 	  console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
 	});
+
+	$('#date_dost').on('apply.daterangepicker', function(ev, picker) {
+        $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+        callFilter();
+  	});
+
+  	$('#date_dost').on('cancel.daterangepicker', function(ev, picker) {
+    	$(this).val('');
+  	});
+
 	$('#dateSuc_dost').daterangepicker({
+		autoUpdateInput: false,
+		locale: {
+          cancelLabel: 'Clear'
+      	},
 		"showCustomRangeLabel": false,
 		"alwaysShowCalendars": true,
-		"startDate": "07/22/2017",
-		"endDate": "07/28/2017",
 		"opens": "left",
 		"drops": "down",
 		"applyClass":"btn-dateSuccess",
@@ -294,11 +344,23 @@ $month = date('m');
 	}, function(start, end, label) {
 	  console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
 	});
+
+	$('#dateSuc_dost').on('apply.daterangepicker', function(ev, picker) {
+        $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+        callFilter();
+  	});
+
+  	$('#dateSuc_dost').on('cancel.daterangepicker', function(ev, picker) {
+    	$(this).val('');
+  	});
+
 	$('#date_return').daterangepicker({
+		autoUpdateInput: false,
+		locale: {
+          cancelLabel: 'Clear'
+      	},
 		"showCustomRangeLabel": false,
 		"alwaysShowCalendars": true,
-		"startDate": "07/22/2017",
-		"endDate": "07/28/2017",
 		"opens": "left",
 		"drops": "down",
 		"applyClass":"btn-dateSuccess",
@@ -306,11 +368,23 @@ $month = date('m');
 	}, function(start, end, label) {
 	  console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
 	});
+
+	$('#date_return').on('apply.daterangepicker', function(ev, picker) {
+        $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+        callFilter();
+  	});
+
+  	$('#date_return').on('cancel.daterangepicker', function(ev, picker) {
+    	$(this).val('');
+  	});
+
 	$('#date_return_thing').daterangepicker({
+		autoUpdateInput: false,
+		locale: {
+          cancelLabel: 'Clear'
+      	},
 		"showCustomRangeLabel": false,
 		"alwaysShowCalendars": true,
-		"startDate": "07/22/2017",
-		"endDate": "07/28/2017",
 		"opens": "left",
 		"drops": "down",
 		"applyClass":"btn-dateSuccess",
@@ -318,7 +392,15 @@ $month = date('m');
 	}, function(start, end, label) {
 	  console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
 	});
-	
+
+	$('#date_return_thing').on('apply.daterangepicker', function(ev, picker) {
+        $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+        callFilter();
+  	});
+
+  	$('#date_return_thing').on('cancel.daterangepicker', function(ev, picker) {
+    	$(this).val('');
+  	});
 	
 	startCall();
 	
@@ -327,6 +409,10 @@ $month = date('m');
 		var val2 = "";
 		var val3 = val1.slice(0, -5);
 		var date2 = ""
+
+		var price_itog = 0;
+		var sdek_itog = 0;
+
 		switch(val3){
 			case "Январь":
 				val2 = val1.slice(7, 11);
@@ -399,12 +485,12 @@ $month = date('m');
 		fulldate2 = fulldate2.split("-");
 		
 		fulldate =  new Date(fulldate[1]+"/"+fulldate[0]+"/"+fulldate[2]).getTime()/1000;
-		fulldate2 =   new Date(fulldate2[1]+"/"+fulldate2[0]+"/"+fulldate2[2]).getTime()/1000;
+		fulldate2 =   new Date(fulldate2[1]+"/"+fulldate2[0]+"/"+fulldate2[2]).getTime()/1000 + 86400;
 		
         $.ajax({
           type: 'GET',
           url: '/money/getpost?date='+fulldate+'&date2='+fulldate2,
-          success: function(data) {
+          success: function(data, itog_summa) {
 			
             //alert($.trim(data));
 			//data = JSON.stringify(data);
@@ -497,23 +583,18 @@ $month = date('m');
 				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_summa']+'</td>'
 				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['sdek_summa']+'</td>'
 				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+'%'+'</td>'
-
-				
 				+'</tr>');
 
-				// $('#tableLeads').append('<tr>'
-				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px; width:80px;">'+data['lead_date_create']+'</td>'
-				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_date_close']+'</td>'
-				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_date_send']+'</td>'
-				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_date_delivered']+'</td>'
-				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_date_success_delivered']+'</td>'
-				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_date_reset']+'</td>'
-				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_date_reset_thing']+'</td>'
-				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_summa']+'</td>'
-				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['sdek_summa']+'</td>'
-				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+'%'+'</td>'
-				// +'</tr>');
+				price_itog += parseInt(data['lead_summa']);
+				sdek_itog += data['sdek_summa'] == " " ? 0 : parseInt(data['sdek_summa']);
+
 			}
+			$('#tableAll').append('<tr style = "margin-top:-200px;">'
+				+'<td  class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; margin-left:2.5px ;font-size: 12px; width:1122px;">'+'Сумма'+'</td>'
+				+'<td id="price_itog" class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; margin-left:2.5px ;font-size: 12px;width:80px;">'+(price_itog + "").replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ')+'</td>'
+				+'<td id="sdek_itog" class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; margin-left:2.5px ;font-size: 12px;width:80px;">'+(sdek_itog + "").replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ')+'</td>'
+				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; margin-left:2.5px ;font-size: 12px;width:80px;"></td>'
+				+'</tr>');
           },
           error:  function(xhr, str){
 			alert('Возникла ошибка: ' + xhr.responseCode);
@@ -653,6 +734,9 @@ $month = date('m');
 		var val2 = "";
 		var val3 = val1.slice(0, -5);
 		var date2 = ""
+
+		var price_itog = 0;
+		var sdek_itog = 0;
 		switch(val3){
 			case "Январь":
 				val2 = val1.slice(7, 11);
@@ -731,18 +815,123 @@ $month = date('m');
 		var contact_name = document.getElementById('contact_name').value;
 		var phone = document.getElementById('phone').value;
 		var city = document.getElementById('city').value;
-		// var status = document.getElementById('status').value;
+		var status = document.getElementById('status').value;
 		var date_create_interval = document.getElementById('date_create').value;
-		var date_create_first = date_create_interval.substring(1, 10);
-		date_create_first = date_create_first.split("/");
-		date_create_first = new Date(date_create_first[0] + "/" + date_create_first[1] + "/" + date_create_first[2]).getTime()/1000;
-		// date_create_first = new Date(date_create_first).getTime()/1000;
-		console.log(date_create_first);
+		var date_close_interval = document.getElementById('date_close').value;
+		var date_send_interval = document.getElementById('date_send').value;
+		var date_dost_interval = document.getElementById('date_dost').value;
+		var dateSuc_dost_interval = document.getElementById('dateSuc_dost').value;
+		var date_return_interval = document.getElementById('date_return').value;
+		var date_return_thing_interval = document.getElementById('date_return_thing').value;
 
+		var date_create_first, date_create_second;
+		var date_close_first, date_close_second;
+		var date_send_first, date_send_second;
+		var date_dost_first, date_dost_second;
+		var dateSuc_dost_first, dateSuc_dost_second;
+		var date_return_first, date_return_second;
+		var date_return_thing_first, date_return_thing_second;
+
+		var price = document.getElementById('price').value;
+		var sdek_summa = document.getElementById('sdek_summa').value;
+
+		if (date_create_interval == "") {
+			date_create_first = -1;
+			date_create_second = 15014490130;
+		} else {
+			date_create_first = date_create_interval.substring(1, 10);
+			date_create_first = date_create_first.split("/");
+			date_create_first = new Date(date_create_first[0] + "/" + date_create_first[1] + "/" + date_create_first[2]).getTime()/1000;
+
+			date_create_second = date_create_interval.substring(13);
+			date_create_second = date_create_second.split("/");
+			date_create_second = new Date(date_create_second[0] + "/" + date_create_second[1] + "/" + date_create_second[2]).getTime()/1000;	
+		}
+
+		if (date_close_interval == "") {
+			date_close_first = -1;
+			date_close_second = 15014490130;
+		} else {
+			date_close_first = date_close_interval.substring(1, 10);
+			date_close_first = date_close_first.split("/");
+			date_close_first = new Date(date_close_first[0] + "/" + date_close_first[1] + "/" + date_close_first[2]).getTime()/1000;
+
+			date_close_second = date_close_interval.substring(13);
+			date_close_second = date_close_second.split("/");
+			date_close_second = new Date(date_close_second[0] + "/" + date_close_second[1] + "/" + date_close_second[2]).getTime()/1000;	
+		}
+
+		if (date_send_interval == "") {
+			date_send_first = -1;
+			date_send_second = 15014490130;
+		} else {
+			date_send_first = date_send_interval.substring(1, 10);
+			date_send_first = date_send_first.split("/");
+			date_send_first = new Date(date_send_first[0] + "/" + date_send_first[1] + "/" + date_send_first[2]).getTime()/1000;
+
+			date_send_second = date_send_interval.substring(13);
+			date_send_second = date_send_second.split("/");
+			date_send_second = new Date(date_send_second[0] + "/" + date_send_second[1] + "/" + date_send_second[2]).getTime()/1000;	
+		}
+
+		if (date_dost_interval == "") {
+			date_dost_first = -1;
+			date_dost_second = 15014490130;
+		} else {
+			date_dost_first = date_dost_interval.substring(1, 10);
+			date_dost_first = date_dost_first.split("/");
+			date_dost_first = new Date(date_dost_first[0] + "/" + date_dost_first[1] + "/" + date_dost_first[2]).getTime()/1000;
+
+			date_dost_second = date_dost_interval.substring(13);
+			date_dost_second = date_dost_second.split("/");
+			date_dost_second = new Date(date_dost_second[0] + "/" + date_dost_second[1] + "/" + date_dost_second[2]).getTime()/1000;	
+		}
+		
+		if (dateSuc_dost_interval == "") {
+			dateSuc_dost_first = -1;
+			dateSuc_dost_second = 15014490130;
+		} else {
+			dateSuc_dost_first = dateSuc_dost_interval.substring(1, 10);
+			dateSuc_dost_first = dateSuc_dost_first.split("/");
+			dateSuc_dost_first = new Date(dateSuc_dost_first[0] + "/" + dateSuc_dost_first[1] + "/" + dateSuc_dost_first[2]).getTime()/1000;
+
+			dateSuc_dost_second = dateSuc_dost_interval.substring(13);
+			dateSuc_dost_second = dateSuc_dost_second.split("/");
+			dateSuc_dost_second = new Date(dateSuc_dost_second[0] + "/" + dateSuc_dost_second[1] + "/" + dateSuc_dost_second[2]).getTime()/1000;	
+		}
+
+		if (date_return_interval == "") {
+			date_return_first = -1;
+			date_return_second = 15014490130;
+		} else {
+			date_return_first = date_return_interval.substring(1, 10);
+			date_return_first = date_return_first.split("/");
+			date_return_first = new Date(date_return_first[0] + "/" + date_return_first[1] + "/" + date_return_first[2]).getTime()/1000;
+
+			date_return_second = date_return_interval.substring(13);
+			date_return_second = date_return_second.split("/");
+			date_return_second = new Date(date_return_second[0] + "/" + date_return_second[1] + "/" + date_return_second[2]).getTime()/1000;	
+		}
+
+		if (date_return_thing_interval == "") {
+			date_return_thing_first = -1;
+			date_return_thing_second = 15014490130;
+		} else {
+			date_return_thing_first = date_return_thing_interval.substring(1, 10);
+			date_return_thing_first = date_return_thing_first.split("/");
+			date_return_thing_first = new Date(date_return_thing_first[0] + "/" + date_return_thing_first[1] + "/" + date_return_thing_first[2]).getTime()/1000;
+
+			date_return_thing_second = date_return_thing_interval.substring(13);
+			date_return_thing_second = date_return_thing_second.split("/");
+			date_return_thing_second = new Date(date_return_thing_second[0] + "/" + date_return_thing_second[1] + "/" + date_return_thing_second[2]).getTime()/1000;	
+		}
+
+
+		// console.log('/money/find?date='+fulldate+'&date2='+fulldate2 + '&critical_acc=' + critical_acc + '&contact_name=' + contact_name + '&phone=' + phone + '&city=' + city + '&status=' + status + '&date_create_first=' + date_create_first + '&date_create_second=' + date_create_second);
 
         $.ajax({
           type: 'GET',
-          url: '/money/find?date='+fulldate+'&date2='+fulldate2 + '&critical_acc=' + critical_acc + '&contact_name=' + contact_name + '&phone=' + phone + '&city=' + city + '&status=' + status,
+          url: '/money/find?date='+fulldate+'&date2='+fulldate2 + '&critical_acc=' + critical_acc + '&contact_name=' + contact_name + '&phone=' + phone + '&city=' + city + '&status=' + status + '&date_create_first=' + date_create_first + '&date_create_second=' + date_create_second + '&date_close_first=' + date_close_first + '&date_close_second=' + date_close_second + '&date_send_first=' + date_send_first + '&date_send_second=' + date_send_second + '&date_dost_first=' + date_dost_first + '&date_dost_second=' + date_dost_second + '&dateSuc_dost_first=' + dateSuc_dost_first + '&dateSuc_dost_second=' + dateSuc_dost_second + '&date_return_first=' + date_return_first + '&date_return_second=' + date_return_second + '&date_return_thing_first=' + date_return_thing_first + '&date_return_thing_second=' + date_return_thing_second + '&price=' + price + '&sdek_summa=' + sdek_summa,
           success: function(data) {
 			
             
@@ -752,6 +941,7 @@ $month = date('m');
 			data = data.substring(1);
 			data = data.substring(0, data.length - 1);
 
+			var isNull = false;
 			var json_texts = data.split('},{');
 
 			var table = document.getElementById('tableAll');
@@ -811,41 +1001,43 @@ $month = date('m');
 						color = "ffd9ff";
 						break;
 				}
-				// elem.innerHTML = data[i]['lead_date_create'];
-				$('#tableAll').append('<tr style = "margin-top:-200px;">'
-				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px; width:102px;">'+data['main']+'</td>'
-				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:98px;">'+data['name']+'</td>'
-				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:106px;">'+data['phone']+'</td>'
-				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['city']+'</td>'
-				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: '+color+'; float: left;margin-left:2.5px ;font-size: 12px;width:115px;">'+data['status']+'</td>'
-				+'<td style ="width:33.83px;" class = "tableIdClient"><a target="_blank" href="https://new584549b112ca4.amocrm.ru/leads/detail/'+data['id']+'"><img src = "../web/img/money_arr.png" style="max-width:100%;"/></a></td>'
-				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px; width:80px;">'+timeConverter(data['lead_date_create'])+'</td>'
-				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+timeConverter(data['lead_date_close'])+'</td>'
-				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+timeConverter(data['lead_date_send'])+'</td>'
-				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+timeConverter(data['lead_date_delivered'])+'</td>'
-				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+timeConverter(data['lead_date_success_delivered'])+'</td>'
-				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+timeConverter(data['lead_date_reset'])+'</td>'
-				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+timeConverter(data['lead_date_reset_thing'])+'</td>'
-				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_summa']+'</td>'
-				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['sdek_summa']+'</td>'
-				+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+'%'+'</td>'
 
-				
-				+'</tr>');
+				if (data['id'] != undefined) {
+					// elem.innerHTML = data[i]['lead_date_create'];
+					$('#tableAll').append('<tr style = "margin-top:-200px;">'
+					+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px; width:102px;">'+data['main']+'</td>'
+					+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:98px;">'+data['name']+'</td>'
+					+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:106px;">'+data['phone']+'</td>'
+					+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['city']+'</td>'
+					+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: '+color+'; float: left;margin-left:2.5px ;font-size: 12px;width:115px;">'+data['status']+'</td>'
+					+'<td style ="width:33.83px;" class = "tableIdClient"><a target="_blank" href="https://new584549b112ca4.amocrm.ru/leads/detail/'+data['id']+'"><img src = "../web/img/money_arr.png" style="max-width:100%;"/></a></td>'
+					+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px; width:80px;">'+timeConverter(data['lead_date_create'])+'</td>'
+					+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+timeConverter(data['lead_date_close'])+'</td>'
+					+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+timeConverter(data['lead_date_send'])+'</td>'
+					+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+timeConverter(data['lead_date_delivered'])+'</td>'
+					+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+timeConverter(data['lead_date_success_delivered'])+'</td>'
+					+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+timeConverter(data['lead_date_reset'])+'</td>'
+					+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+timeConverter(data['lead_date_reset_thing'])+'</td>'
+					+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_summa']+'</td>'
+					+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['sdek_summa']+'</td>'
+					+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+'%'+'</td>'
+					+'</tr>');
 
-				// $('#tableLeads').append('<tr>'
-				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px; width:80px;">'+data['lead_date_create']+'</td>'
-				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_date_close']+'</td>'
-				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_date_send']+'</td>'
-				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_date_delivered']+'</td>'
-				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_date_success_delivered']+'</td>'
-				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_date_reset']+'</td>'
-				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_date_reset_thing']+'</td>'
-				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['lead_summa']+'</td>'
-				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+data['sdek_summa']+'</td>'
-				// +'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; float: left;margin-left:2.5px ;font-size: 12px;width:80px;">'+'%'+'</td>'
-				// +'</tr>');
+					price_itog += parseInt(data['lead_summa']);
+					sdek_itog += data['sdek_summa'] == " " ? 0 : parseInt(data['sdek_summa']);
+				} else {
+					isNull = true;
+					break;
+				}
 			}
+
+			if (!isNull) 
+				$('#tableAll').append('<tr style = "margin-top:-200px;">'
+					+'<td  class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; margin-left:2.5px ;font-size: 12px; width:1122px;">'+'Сумма'+'</td>'
+					+'<td id="price_itog" class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; margin-left:2.5px ;font-size: 12px;width:80px;">'+(price_itog + "").replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ')+'</td>'
+					+'<td id="sdek_itog" class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; margin-left:2.5px ;font-size: 12px;width:80px;">'+(sdek_itog + "").replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ')+'</td>'
+					+'<td class = "tableIdClient" style ="line-height: 1.42857143; background-color: #fff8cc; margin-left:2.5px ;font-size: 12px;width:80px;"></td>'
+					+'</tr>');
           },
           error:  function(xhr, str){
 			alert('Возникла ошибка: ' + xhr.responseCode);

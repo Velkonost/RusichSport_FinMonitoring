@@ -216,6 +216,7 @@ class MoneyController extends Controller {
                 $clientsIds = [];
                 $clientsCity = [];
                 $amountLeads = count($data->{'response'}->{'leads'});
+                $responsibles = [];
 
                 for ($i = 0; $i < $amountLeads; $i ++) {
                     array_push($leadsIds, $data->{'response'}->{'leads'}[$i]->{'id'});
@@ -228,13 +229,41 @@ class MoneyController extends Controller {
                     array_push($clientsCity, unparseSdekCity($data->{'response'}->{'leads'}[$i]->{'custom_fields'}));
                     array_push($leadsPrice, unparsePrice($data->{'response'}->{'leads'}[$i]->{'custom_fields'}));
 
+
+                    if ($data->{'response'}->{'leads'}[$i]->{'responsible_user_id'} == 1178568) {
+                        array_push($responsibles, "Алексей Камышлов");
+                    }
+
                 }
+
+                // sleep(2);
+
+                // $link3 = 'https://'.$subdomain.'.amocrm.ru/private/api/v2/json/accounts/current?free_users=Y';
+
+                // $curl=curl_init(); #Сохраняем дескриптор сеанса cURL
+                // #Устанавливаем необходимые опции для сеанса cURL
+                // curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
+                // curl_setopt($curl,CURLOPT_USERAGENT,'amoCRM-API-client/1.0');
+                // curl_setopt($curl,CURLOPT_URL,$link3);
+                // curl_setopt($curl,CURLOPT_HEADER,false);
+                // curl_setopt($curl,CURLOPT_COOKIEFILE,__DIR__.'/cookie.txt'); #PHP>5.3.6 dirname(__FILE__) -> __DIR__
+                // curl_setopt($curl,CURLOPT_COOKIEJAR,__DIR__.'/cookie.txt'); #PHP>5.3.6 dirname(__FILE__) -> __DIR__
+                // curl_setopt($curl,CURLOPT_SSL_VERIFYPEER,0);
+                // curl_setopt($curl,CURLOPT_SSL_VERIFYHOST,0);
+
+                // $out=curl_exec($curl); #Инициируем запрос к API и сохраняем ответ в переменную
+                // $code=curl_getinfo($curl,CURLINFO_HTTP_CODE);
+                // curl_close($curl);
+
+                // $data = json_decode($out);
+                
  
+ //1178568
                 for ($i = 0; $i < count($clientsIds); $i ++) {
                     
                     $post = new Leads;
                     $post->lead_id = $leadsIds[$i];
-                    $post->critical_acc = "Ответственный";
+                    $post->critical_acc = $responsibles[$i];
                     $post->contact_id = $clientsIds[$i];
                     $post->lead_status = $leadsStatusId[$i];
 
@@ -497,7 +526,7 @@ class MoneyController extends Controller {
 
             $offset = 0;
             
-    //1171
+            //1171
             for (;$offset < 1000; $offset += 500) {
                 $link2 = 'https://'.$subdomain.'.amocrm.ru/private/api/v2/json/contacts/list?limit_rows=500&limit_offset='.$offset;
 
@@ -628,6 +657,7 @@ class MoneyController extends Controller {
                 $clientsIds = [];
                 $clientsCity = [];
                 $amountLeads = count($data->{'response'}->{'leads'});
+                $responsibles = [];
 
                 for ($i = 0; $i < $amountLeads; $i ++) {
                     array_push($leadsIds, $data->{'response'}->{'leads'}[$i]->{'id'});
@@ -640,13 +670,20 @@ class MoneyController extends Controller {
                     array_push($clientsCity, unparseSdekCity($data->{'response'}->{'leads'}[$i]->{'custom_fields'}));
                     array_push($leadsPrice, unparsePrice($data->{'response'}->{'leads'}[$i]->{'custom_fields'}));
 
+                    if ($data->{'response'}->{'leads'}[$i]->{'responsible_user_id'} == 1178568) {
+                        array_push($responsibles, "Алексей Камышлов");
+                    }
+
+
                 }
+
+                
 
                 for ($i = 0; $i < count($clientsIds); $i ++) {
                     
                     $post = new Leads;
                     $post->lead_id = $leadsIds[$i];
-                    $post->critical_acc = "Ответственный";
+                    $post->critical_acc = $responsibles[$i];
                     $post->contact_id = $clientsIds[$i];
                     
                     $post->lead_status = $leadsStatusId[$i];
@@ -666,7 +703,7 @@ class MoneyController extends Controller {
                 sleep(2);
             }
 
-            $link2 = 'https://'.$subdomain.'.amocrm.ru/private/api/v2/json/leads/list?limit_rows=381&limit_offset='.$offset;
+            $link2 = 'https://'.$subdomain.'.amocrm.ru/private/api/v2/json/leads/list?limit_rows=450&limit_offset='.$offset;
 
             $curl=curl_init(); #Сохраняем дескриптор сеанса cURL
             #Устанавливаем необходимые опции для сеанса cURL
@@ -695,6 +732,7 @@ class MoneyController extends Controller {
             $clientsIds = [];
             $clientsCity = [];
             $amountLeads = count($data->{'response'}->{'leads'});
+            $responsibles = [];
 
             for ($i = 0; $i < $amountLeads; $i ++) {
                 array_push($leadsIds, $data->{'response'}->{'leads'}[$i]->{'id'});
@@ -707,12 +745,17 @@ class MoneyController extends Controller {
                 array_push($clientsCity, unparseSdekCity($data->{'response'}->{'leads'}[$i]->{'custom_fields'}));
                 array_push($leadsPrice, unparsePrice($data->{'response'}->{'leads'}[$i]->{'custom_fields'}));
 
+                 if ($data->{'response'}->{'leads'}[$i]->{'responsible_user_id'} == 1178568) {
+                    array_push($responsibles, "Алексей Камышлов");
+                }
             }
+
+            
 
             for ($i = 0; $i < count($clientsIds); $i ++) {
                 $post = new Leads;
                 $post->lead_id = $leadsIds[$i];
-                $post->critical_acc = "Ответственный";
+                $post->critical_acc = $responsibles[$i];
                 $post->contact_id = $clientsIds[$i];
                 
                 $post->lead_status = $leadsStatusId[$i];
