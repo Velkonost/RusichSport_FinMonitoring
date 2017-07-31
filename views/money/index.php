@@ -168,14 +168,14 @@ $month = date('m');
 		
 	var opt = document.createElement('option');
 	opt.innerHTML = 'ВОЗВРАТ НА СКЛАД';
-	opt.backgroundColor = "ffd9ff";
+	opt.color = "ffd9ff";
 	opt.value = '15756256';
 	$('#status').append(opt);
 	
 	var opt = document.createElement('option');
 	opt.innerHTML = 'ОЖИДАЕТ';
 	opt.value = '12988848';
-	opt.backgroundColor = "ff7bff";
+	opt.color = "ff7bff";
 	$('#status').append(opt);
 	
 	var opt = document.createElement('option');
@@ -186,50 +186,50 @@ $month = date('m');
 	
 	var opt = document.createElement('option');
 	opt.innerHTML = 'ЗАЯВКА';
-	opt.backgroundColor = "8ec9ff";
+	opt.color = "8ec9ff";
 	opt.value = '12988842';
 	$('#status').append(opt);
 	
 	var opt = document.createElement('option');
 	opt.innerHTML = 'ОТЛОЖЕННЫЙ ЗАКАЗ';
 	opt.value = '15756253';
-	opt.backgroundColor = "d2e9ff";
+	opt.color = "d2e9ff";
 	$('#status').append(opt);
 	
 	var opt = document.createElement('option');
 	opt.innerHTML = 'ДОСТАВЛЕН';
-	opt.backgroundColor = "49fac3";
+	opt.color = "49fac3";
 	opt.value = '12988851';
 	$('#status').append(opt);
 	
 	var opt = document.createElement('option');
 	opt.innerHTML = 'УСПЕШНО ЗАВЕРШЕНО';
 	opt.value = '142';
-	opt.backgroundColor = "b4ff62"
+	opt.color = "b4ff62"
 	$('#status').append(opt);
 	
 	var opt = document.createElement('option');
 	opt.innerHTML = 'ЗАКРЫТО И НЕ РЕАЛИЗОВАНО';
 	opt.value = '143';
-	opt.backgroundColor = "d4d8db";
+	opt.color = "d4d8db";
 	$('#status').append(opt);
 	
 	var opt = document.createElement('option');
 	opt.innerHTML = 'НЕ ВРУЧЕН';
-	opt.backgroundColor = "ff838b";
+	opt.color = "ff838b";
 	opt.value = '12998565';
 	$('#status').append(opt);
 	
 	var opt = document.createElement('option');
 	opt.innerHTML = 'ОТПРАВЛЕН';
 	opt.value = '12988845';
-	opt.backgroundColor = "49fac3";
+	opt.color = "49fac3";
 	$('#status').append(opt);
 						
 	var opt = document.createElement('option');
 	opt.innerHTML = 'ПРЕДЗАКАЗ';
 	opt.value = '15756250';
-	opt.backgroundColor = "ffdf77";
+	opt.color = "ffdf77";
 	$('#status').append(opt);
 						
 						
